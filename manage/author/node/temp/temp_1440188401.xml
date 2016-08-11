@@ -1,0 +1,360 @@
+<?xml version="1.0" encoding="utf-8"?>
+<guide>
+  <title value="[title]">
+    <text value="Simcraft-Basics "/>
+    <size value="[size,type=x-small]" type="x-small">
+      <text value="von Rabauzel"/>
+    </size>
+  </title>
+  <size value="[size,type=x-large]" type="x-large">
+    <text value="Warum sollte ich Simcraft nutzen ?"/>
+  </size>
+  <br value="[br]"/>
+  <br value="[br]"/>
+  <text value="Für DDs ist Simcraft das beste - und einzig notwendige - Werkzeug um alles aus dem Char rauszuholen."/>
+  <br value="[br]"/>
+  <br value="[br]"/>
+  <size value="[size,type=x-large]" type="x-large">
+    <text value="Was kann Simcraft ?"/>
+  </size>
+  <br value="[br]"/>
+  <br value="[br]"/>
+  <list value="[list]">
+    <star value="[*]">
+      <text value="Die bestmögliche DPS des eigenen Charakters gegen eine beliebige Anzahl an Ziele, über einen beliebig langen Zeitraum berechnen. Und zwar viel genauer als z.B. Ask-Mr.-Robot und ähnlicher Schrott."/>
+    </star>
+    <star value="[*]">
+      <text value="Eine extrem detaillierte Prioritäten-Liste für den eigenen Charakter ausgeben, in der genau drinsteht, welche Schadens-Fähigkeit wann genutzt wird, also quasi die optimale DPS-Rotation. Und das viel genauer als alle Klassen-Guides."/>
+    </star>
+    <star value="[*]">
+      <text value="Einen Kompletten Kampf in Form einer sogenannten „Sample-Sequence“ ausgeben. Das muss man sich so vorstellen: Ein Bot, der meine Klasse/Specc perfekt spielen kann und nie einen Fehler macht, stellt sich an eine Bosspuppe und macht eine zuvor eingestellte Zeitdauer lang Schaden. Ich bekomme den kompletten Kampf, inclusive aller Fähigkeiten und CDs, die der Bot in jedem einzelnen GCD (Global-Cooldown) genutzt hat, mit exakten Zeitangaben als Liste ausgegeben. Dies beinhaltet auch Pull-Phase und Execute-Phase (falls vorhanden). Ich kann mir genau anschauen, was der Bot wann gemacht hat und was nicht."/>
+    </star>
+    <star value="[*]">
+      <text value="Die sogenannten „Stat-Weights“ ausrechnen: Anhand der eigenen Ausrüstung und deren Werte berechnet Simcraft, welcher Stat für den eigenen Charakter aktuell den meisten DPS-Gewinn bringt. Auch dies viel genauer als Ask-Mr.-Robot, Noxxic und ähnliche Käse-Seiten."/>
+    </star>
+  </list>
+  <br value="[br]"/>
+  <br value="[br]"/>
+  <size value="[size,type=x-large]" type="x-large">
+    <text value="Wie benutze ich Simcraft ?"/>
+  </size>
+  <br value="[br]"/>
+  <br value="[br]"/>
+  <b value="[b]">
+    <text value="Installation:"/>
+  </b>
+  <br value="[br]"/>
+  <br value="[br]"/>
+  <list value="[list,type=numeric]" type="numeric">
+    <star value="[*]">
+      <url value="[url,uri=http://www.simulationcraft.org/download.html]" uri="http://www.simulationcraft.org/download.html">
+        <text value="Das Programm findet ihr hier"/>
+      </url>
+    </star>
+    <star value="[*]">
+      <text value="Die zum Betriebssystem passende Version downloaden"/>
+    </star>
+    <star value="[*]">
+      <text value="Installieren + Starten"/>
+    </star>
+    <star value="[*]">
+      <text value="Man befindet sich nun auf einer Art „Startseite“ mit diversen Tabs am oberen Rand"/>
+    </star>
+  </list>
+  <br value="[br]"/>
+  <br value="[br]"/>
+  <b value="[b]">
+    <text value="Den eigenen Charakter importieren:"/>
+  </b>
+  <br value="[br]"/>
+  <br value="[br]"/>
+  <list value="[list,type=numeric]" type="numeric">
+    <star value="[*]">
+      <text value="„Optionen“"/>
+    </star>
+    <star value="[*]">
+      <text value="„Global“"/>
+    </star>
+    <star value="[*]">
+      <text value="„Bnet-Region“ auf „EU“ umstellen"/>
+    </star>
+    <star value="[*]">
+      <text value="„Importieren“"/>
+    </star>
+    <star value="[*]">
+      <text value="„Battle.net“"/>
+    </star>
+    <star value="[*]">
+      <text value="Man befindet sich nun auf der Startseite vom Arsenal"/>
+    </star>
+    <star value="[*]">
+      <text value="Den eigenen Charakter über die Arsenal-Suchfunktion heraussuchen"/>
+    </star>
+    <star value="[*]">
+      <text value="Unten rechts auf den „Importieren“-Button klicken"/>
+    </star>
+  </list>
+  <br value="[br]"/>
+  <br value="[br]"/>
+  <b value="[b]">
+    <text value="Den eigenen Charakter simulieren:"/>
+  </b>
+  <br value="[br]"/>
+  <br value="[br]"/>
+  <text value="Nachdem der eigene Charakter importiert wurde öffnet sich automatisch eine Übersichtsseite auf der in Textform alle Infos über den Charakter aufgelistet sind."/>
+  <text value="Diese Seite wirkt auf Anhieb etwas unübersichtlich, ist aber zunächst auch nicht weiter relevant."/>
+  <br value="[br]"/>
+  <br value="[br]"/>
+  <text value="Anschließend geht es zurück zu „Optionen“."/>
+  <br value="[br]"/>
+  <br value="[br]"/>
+  <important value="[important]">
+    <b value="[b]">
+      <text value="Übersicht der wichtigsten Einstellungen:"/>
+    </b>
+    <br value="[br]"/>
+    <br value="[br]"/>
+    <list value="[list]">
+      <star value="[*]">
+        <b value="[b]">
+          <text value="„Version“"/>
+        </b>
+        <text value=": Life oder PTR (Public-Test-Realm)."/>
+      </star>
+      <star value="[*]">
+        <b value="[b]">
+          <text value="„Sollfehler“"/>
+        </b>
+        <text value=": Toleranz, die in die Ergebnisse eingebaut wird, sollte immer auf „N/A“ stehen."/>
+      </star>
+      <star value="[*]">
+        <b value="[b]">
+          <text value="„Iterationen“"/>
+        </b>
+        <text value=": Anzahl der simulierten Kämpfe. Je mehr Kämpfe simuliert werden, desto genauer/exakter sind die Endergebnisse der Simulation."/>
+      </star>
+      <star value="[*]">
+        <b value="[b]">
+          <text value="„Kampflänge“"/>
+        </b>
+        <text value=": Die Dauer des simulierten Kampfes."/>
+      </star>
+      <star value="[*]">
+        <b value="[b]">
+          <text value="„Vary Legth %“"/>
+        </b>
+        <text value=": =&gt; Toleranz, am besten mit einem Beispiel erklärt: Angenommen man hat bei „Kampflänge“: 200s eingestellt und stellt bei „Vary Length %“: 20% ein, variiert der simulierte Kampf zwischen 160s und 240s."/>
+      </star>
+      <star value="[*]">
+        <b value="[b]">
+          <text value="„Kampfart“"/>
+        </b>
+        <text value=":"/>
+        <list value="[list,type=numeric]" type="numeric">
+          <star value="[*]">
+            <b value="[b]">
+              <text value="„Patchwork“"/>
+            </b>
+            <text value=": "/>
+            <i value="[i]">
+              <text value="Teufelslord Zakuun"/>
+            </i>
+          </star>
+          <star value="[*]">
+            <b value="[b]">
+              <text value="„HecticAddCleave“"/>
+            </b>
+            <text value=": "/>
+            <i value="[i]">
+              <text value="Höllenfeuerangriff"/>
+            </i>
+            <text value=", "/>
+            <i value="[i]">
+              <text value="Xul'horac"/>
+            </i>
+          </star>
+          <star value="[*]">
+            <b value="[b]">
+              <text value="„HelterSkelter“"/>
+            </b>
+            <text value=": "/>
+            <i value="[i]">
+              <text value="Eiserner Häscher"/>
+            </i>
+            <text value=", "/>
+            <i value="[i]">
+              <text value="Tyrannin Velhari"/>
+            </i>
+            <text value=", "/>
+            <i value="[i]">
+              <text value="Hoher Rat des Höllenfeuers"/>
+            </i>
+          </star>
+          <star value="[*]">
+            <b value="[b]">
+              <text value="„Ultraxion“"/>
+            </b>
+            <text value=": "/>
+            <i value="[i]">
+              <text value="Ultraxion"/>
+            </i>
+            <text value=" (surprise, surprise)"/>
+          </star>
+          <star value="[*]">
+            <b value="[b]">
+              <text value="„Wenig laufen“"/>
+            </b>
+            <text value=": "/>
+            <i value="[i]">
+              <text value="Killrog"/>
+            </i>
+            <text value=", "/>
+            <i value="[i]">
+              <text value="Blutschatten"/>
+            </i>
+            <text value=", "/>
+            <i value="[i]">
+              <text value="Kormrok"/>
+            </i>
+            <text value=", "/>
+            <i value="[i]">
+              <text value="Socrethar"/>
+            </i>
+          </star>
+          <star value="[*]">
+            <b value="[b]">
+              <text value="„Viel laufen“"/>
+            </b>
+            <text value=": "/>
+            <i value="[i]">
+              <text value="Mannoroth"/>
+            </i>
+            <text value=", "/>
+            <i value="[i]">
+              <text value="Archimonde"/>
+            </i>
+          </star>
+          <star value="[*]">
+            <b value="[b]">
+              <text value="„Beastlord“"/>
+            </b>
+            <text value=": "/>
+            <i value="[i]">
+              <text value="Abrichter Darmac"/>
+            </i>
+            <text value=", "/>
+            <i value="[i]">
+              <text value="Schattenlord Iskar"/>
+            </i>
+          </star>
+        </list>
+        <br value="[br]"/>
+        <i value="[i]">
+          <alert value="[alert,type=info]" type="info">
+            <text value="Anmerkung: Die Profile entsprechen nicht exakt diesen Bossen, sind jedoch gute Richtlinien!"/>
+          </alert>
+        </i>
+      </star>
+      <star value="[*]">
+        <b value="[b]">
+          <text value="„Herausforderungsmodus“"/>
+        </b>
+        <text value=": Man wird auf das derzeitige Item-Level im Challenge-Mode herunterskaliert."/>
+      </star>
+      <star value="[*]">
+        <b value="[b]">
+          <text value="„Spielerkönnen“"/>
+        </b>
+        <text value=":"/>
+        <list value="[list,type=numeric]" type="numeric">
+          <star value="[*]">
+            <b value="[b]">
+              <text value="„Elite“"/>
+            </b>
+            <text value=": Der Bot spielt perfekt."/>
+          </star>
+          <star value="[*]">
+            <b value="[b]">
+              <text value="„Good“"/>
+            </b>
+            <text value=": Der Bot macht kleinere Fehler."/>
+          </star>
+          <star value="[*]">
+            <b value="[b]">
+              <text value="„Average“"/>
+            </b>
+            <text value=": Der Bot macht gravierende Fehler."/>
+          </star>
+          <star value="[*]">
+            <b value="[b]">
+              <text value="„Ouch! Fire is hot!“"/>
+            </b>
+            <text value=": Der Bot macht alles falsch, was man falsch machen kann."/>
+          </star>
+        </list>
+      </star>
+      <star value="[*]">
+        <b value="[b]">
+          <text value="„Vorgegebene Rolle“"/>
+        </b>
+        <text value=": Macht manchmal Sinn auszuwählen, sollte aber in der Regel auf AUTO gestellt sein."/>
+      </star>
+      <star value="[*]">
+        <b value="[b]">
+          <text value="&quot;Anzahl der Feinde&quot;"/>
+        </b>
+        <text value=": Anzahl der Ziele. Möchte man beispielsweise einen &quot;Rats-Boss&quot; simmen, muss die Anzahl der Ziele natürlich entsprechend angepasst werden."/>
+      </star>
+      <star value="[*]">
+        <b value="[b]">
+          <text value="&quot;Stufe des Ziels&quot;"/>
+        </b>
+        <text value=":"/>
+        <list value="[list]">
+          <star value="[*]">
+            <b value="[b]">
+              <text value="&quot;Raid-Boss&quot;"/>
+            </b>
+            <text value=": max.lvl+3"/>
+          </star>
+          <star value="[*]">
+            <b value="[b]">
+              <text value="&quot;5-Man-Heroic&quot;"/>
+            </b>
+            <text value=": max.lvl+2"/>
+          </star>
+          <star value="[*]">
+            <b value="[b]">
+              <text value="&quot;5-Man-Normal&quot;"/>
+            </b>
+            <text value=": max.lvl+1"/>
+          </star>
+          <star value="[*]">
+            <b value="[b]">
+              <text value="&quot;Max-Player-Level&quot;"/>
+            </b>
+            <text value=": max.lvl"/>
+          </star>
+        </list>
+      </star>
+    </list>
+  </important>
+  <br value="[br]"/>
+  <text value="Nachdem die entsprechenden Einstellungen getätigt sind gehen wir auf:"/>
+  <text value="„Simulieren“."/>
+  <br value="[br]"/>
+  <br value="[br]"/>
+  <text value="Entsprechenden Charakter über die Tabs in der zweiten Reihe auswählen und unten rechts auf den „Simulieren“-Button klicken."/>
+  <br value="[br]"/>
+  <br value="[br]"/>
+  <text value="Zum besseren Verständnis hier nochmal ein kleiner Video-Guide:"/>
+  <br value="[br]"/>
+  <br value="[br]"/>
+  <important value="[important]">
+    <video value="[video,uri=https://www.youtube.com/watch?v=smhEQJifv9Y]" uri="https://www.youtube.com/watch?v=smhEQJifv9Y">
+      <text value="Simcraft-Einführung"/>
+    </video>
+  </important>
+  <br value="[br]"/>
+  <br value="[br]"/>
+</guide>

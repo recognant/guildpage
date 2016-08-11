@@ -1,0 +1,278 @@
+<?xml version="1.0" encoding="utf-8"?>
+<guide>
+  <title value="[title]">
+    <icon value="[icon,type=globe]" type="globe"/>
+    <text value="Warcraftlogs-Basics "/>
+    <size value="[size,type=x-small]" type="x-small">
+      <text value="von Rabauzel"/>
+    </size>
+  </title>
+  <header value="[header]">
+    <list value="[list]">
+      <star value="[*]">
+        <url value="[url,uri=https://www.warcraftlogs.com]" uri="https://www.warcraftlogs.com">
+          <text value="Warcraftlogs"/>
+        </url>
+        <text value=" sollte nicht mit "/>
+        <url value="[url,uri=http://www.worldoflogs.com]" uri="http://www.worldoflogs.com">
+          <text value="Worldoflogs"/>
+        </url>
+        <text value=" verwechselt werden, da diese Seite ziemlich outdated ist."/>
+      </star>
+      <star value="[*]">
+        <text value="Wem "/>
+        <url value="[url,uri=https://www.warcraftlogs.com]" uri="https://www.warcraftlogs.com">
+          <text value="Warcraftlogs"/>
+        </url>
+        <text value=" zu komplex/aufwändig ist, der kann bei Raidscore eine stark abgespeckte Version einsehen."/>
+        <br value="[br]"/>
+        <text value="Hier werden alle Daten aus "/>
+        <url value="[url,uri=https://www.warcraftlogs.com]" uri="https://www.warcraftlogs.com">
+          <text value="Warcraftlogs"/>
+        </url>
+        <text value=" automatisch ausgelesen und zu einem „Rating“ von 1-100 zusammengefasst (1 am schlechtesten/ 100 am besten)."/>
+        <br value="[br]"/>
+        <text value="Allerdings muss eine Mindest-Menge an hochgeladenen Logs für den jeweiligen Charakter bei "/>
+        <url value="[url,uri=https://www.warcraftlogs.com]" uri="https://www.warcraftlogs.com">
+          <text value="Warcraftlogs"/>
+        </url>
+        <text value=" existieren, damit das Tool richtig funktioniert."/>
+        <br value="[br]"/>
+        <text value="Desweiteren hat das Tool noch einige Fehler."/>
+      </star>
+      <star value="[*]">
+        <text value="Im folgenden wird nur auf wesentliche Funktionen eingegangen, "/>
+        <url value="[url,uri=https://www.warcraftlogs.com]" uri="https://www.warcraftlogs.com">
+          <text value="Warcraftlogs"/>
+        </url>
+        <text value=" bietet jedoch darüber hinaus noch wesentlich mehr „Diagnose-Möglichkeiten“."/>
+      </star>
+    </list>
+  </header>
+  <chapter value="[chapter]">
+    <text value="Rankings"/>
+  </chapter>
+  <list value="[list]">
+    <star value="[*]">
+      <b value="[b]">
+        <text value="Rank %"/>
+      </b>
+      <text value=" : Am besten mit einem Beispiel erklärt. Wenn in dieser Spalte neben dem Charakter-Namen eine 60 steht (60%), heißt das, man gehört zu den besten 40% der Spieler oder anders ausgedrückt, man ist besser als 60% aller Spieler."/>
+      <br value="[br]"/>
+      <icon value="[icon,type=arrow-right]" type="arrow-right"/>
+      <text value=" Je näher die Zahl an 99% ist, desto besser."/>
+      <alert value="[alert,type=danger]" type="danger">
+        <b value="[b]">
+          <text value="Achtung."/>
+        </b>
+        <text value=" Hier wird das Itemlvl/Gearscore "/>
+        <b value="[b]">
+          <text value="NICHT"/>
+        </b>
+        <text value=" berücksichtigt! Daher hat diese Zahl im Prinzip keine Aussagekraft!"/>
+      </alert>
+    </star>
+    <star value="[*]">
+      <b value="[b]">
+        <text value="Bracket %"/>
+      </b>
+      <text value=": Letztendlich die Zahl, um die sich alles dreht. Vom Prinzip wie Rank %, aber hier wird das "/>
+      <i value="[i]">
+        <text value="Itemlvl/Gearscore"/>
+      </i>
+      <text value=" berücksichtigt! Wenn man sich zum Beispiel im "/>
+      <i value="[i]">
+        <text value="Bracket: 658-664 Itemlvl"/>
+      </i>
+      <text value=" befindet und in dieser Spalte neben dem Charakter-Namen eine 60 ("/>
+      <i value="[i]">
+        <text value="60%"/>
+      </i>
+      <text value=") steht, heißt das, man gehört zu den besten "/>
+      <b value="[b]">
+        <text value="40%"/>
+      </b>
+      <text value=" der Spieler die ein Itemlvl zwischen 658-664 haben."/>
+      <br value="[br]"/>
+      <icon value="[icon,type=arrow-right]" type="arrow-right"/>
+      <text value=" Je näher die Zahl an 99% ist, desto besser."/>
+    </star>
+  </list>
+  <chapter value="[chapter]">
+    <text value="Wichtige Abkürzungen"/>
+  </chapter>
+  <list value="[list]">
+    <star value="[*]">
+      <text value=" "/>
+      <b value="[b]">
+        <text value="KRSI"/>
+      </b>
+      <text value=" = Kihra's "/>
+      <url value="[url,uri=http://www.wowhead.com/spell=158298/resolve]" uri="http://www.wowhead.com/spell=158298/resolve">
+        <text value="Resolve"/>
+      </url>
+      <text value="-weighted Survivability Index = „Kihra's nach "/>
+      <url value="[url,uri=http://de.wowhead.com/spell=158298/entschlossenheit]" uri="http://de.wowhead.com/spell=158298/entschlossenheit">
+        <text value="Entschlossenheit"/>
+      </url>
+      <text value=" gewichteter Überlebens-Index“: Ein Maß dafür, wie gut ein Tank mit seiner aktiven Schadensvermeidung und seiner "/>
+      <url value="[url,uri=http://de.wowhead.com/spell=158298/entschlossenheit]" uri="http://de.wowhead.com/spell=158298/entschlossenheit">
+        <text value="Entschlossenheit"/>
+      </url>
+      <text value=" umgehen kann. "/>
+      <i value="[i]">
+        <text value="[Je niedriger, desto besser]"/>
+      </i>
+    </star>
+    <star value="[*]">
+      <b value="[b]">
+        <text value="DPS(a)"/>
+      </b>
+      <text value=" = Damage per Second average = Durchschnittlicher verursachter Schaden pro Sekunde im Verhältnis zur Kampfdauer "/>
+      <i value="[i]">
+        <text value="[Je höher, desto besser]"/>
+      </i>
+    </star>
+    <star value="[*]">
+      <b value="[b]">
+        <text value="DPS(e)"/>
+      </b>
+      <text value=" = Damage per Second end of fight = Verursachter Schaden pro Sekunde bei Kampfende "/>
+      <i value="[i]">
+        <text value="[Je höher, desto besser]"/>
+      </i>
+    </star>
+    <star value="[*]">
+      <b value="[b]">
+        <text value="HPS(a)"/>
+      </b>
+      <text value=" = Heal per Second average = Durchschnittliche hervorgerufene Heilung pro Sekunde im Verhältnis zur Kampfdauer "/>
+      <i value="[i]">
+        <text value="[Je höher, desto besser]"/>
+      </i>
+    </star>
+    <star value="[*]">
+      <b value="[b]">
+        <text value="HPS(e)"/>
+      </b>
+      <text value=" = Heal per Second end of fight = Hervorgerufene Heilung pro Sekunde bei Kampfende "/>
+      <i value="[i]">
+        <text value="[Je höher, desto besser]"/>
+      </i>
+    </star>
+    <star value="[*]">
+      <b value="[b]">
+        <text value="Overheal"/>
+      </b>
+      <text value=" = Überheilung: Heilung, die ins Leere geht, weil das Ziel bereits 100% HP hat oder von einem Absorbtionseffekt betroffen ist "/>
+      <i value="[i]">
+        <text value="[Je niedriger, desto besser]"/>
+      </i>
+    </star>
+    <star value="[*]">
+      <b value="[b]">
+        <text value="DTPS(a)"/>
+      </b>
+      <text value=" = Damage taken per Second average = Durchschnittlicher erlittener Schaden im Verhältnis zur Kampfdauer "/>
+      <i value="[i]">
+        <text value="[Je niedriger, desto besser]"/>
+      </i>
+    </star>
+    <star value="[*]">
+      <b value="[b]">
+        <text value="DTPS(e)"/>
+      </b>
+      <text value=" = Damage taken per Second end of fight = Durchschnittlicher erlittener Schaden bei Kampfende "/>
+      <i value="[i]">
+        <text value="[Je niedriger, desto besser]"/>
+      </i>
+    </star>
+    <star value="[*]">
+      <b value="[b]">
+        <text value="Active/Activity"/>
+      </b>
+      <text value=" = Aktiv/Aktivität: Man ist aktiv, wenn man ein Ziel angreift/heilt, Schaden erleidet, oder Fähigkeiten benutzt "/>
+      <i value="[i]">
+        <text value="[Je höher, desto besser]"/>
+      </i>
+    </star>
+  </list>
+  <chapter value="[chapter]">
+    <text value="Wie Rufe ich meine Logs auf?"/>
+  </chapter>
+  <subchapter value="[subchapter]">
+    <text value="Persönliche Logs:"/>
+  </subchapter>
+  <list value="[list]">
+    <star value="[*]">
+      <url value="[url,uri=https://www.warcraftlogs.com]" uri="https://www.warcraftlogs.com">
+        <text value="Warcraftlogs"/>
+      </url>
+      <text value=" aufrufen."/>
+    </star>
+    <star value="[*]">
+      <text value="Den Namen seines Charakters oben in das Suchfeld eingeben."/>
+    </star>
+    <star value="[*]">
+      <text value="Nun öffnet sich eine Übersichtsseite, auf der man sich alle Logs des jeweiligen Charakters anschauen kann, die jemals von irgendeinem Uploader auf "/>
+      <url value="[url,uri=https://www.warcraftlogs.com]" uri="https://www.warcraftlogs.com">
+        <text value="Warcraftlogs"/>
+      </url>
+      <text value=" hochgeladen wurden."/>
+    </star>
+    <star value="[*]">
+      <text value="Über die Reiter oben kann man die jeweilige Instanz, Boss und Schwierigkeitsgrad sowie die Spezialisierung auswählen und bekommt alle Logs angezeigt, die über den eigenen Charakter für den gewählten Encounter existieren."/>
+    </star>
+    <star value="[*]">
+      <text value="Durch Klick auf das einen Kalendereintrag öffnet sich die Übersichtsseite."/>
+    </star>
+    <star value="[*]">
+      <text value="In die persönlichen Logs werden auch automatisch alle Gildenlogs mit aufgenommen, sofern der eigene Charakter dort auftaucht."/>
+    </star>
+  </list>
+  <important value="[important]">
+    <video value="[video,uri=https://www.youtube.com/watch?v=l6dYngalUVs]" uri="https://www.youtube.com/watch?v=l6dYngalUVs"/>
+  </important>
+  <subchapter value="[subchapter]">
+    <text value="Gildenlogs:"/>
+  </subchapter>
+  <list value="[list]">
+    <star value="[*]">
+      <url value="[url,uri=https://www.warcraftlogs.com]" uri="https://www.warcraftlogs.com">
+        <text value="Warcraftlogs"/>
+      </url>
+      <text value=" aufrufen."/>
+    </star>
+    <star value="[*]">
+      <text value="Den Namen seiner Gilde oben in das Suchfeld eingeben."/>
+    </star>
+    <star value="[*]">
+      <text value="Nun öffnet sich der Gildenkalender in dem alle Logs, die in das Gildenprofil hochgeladen wurden, unter dem jeweiligen Datum zu finden sind."/>
+    </star>
+    <star value="[*]">
+      <text value="Mit den kleinen Pfeilen oben kann der jeweilige Monat eingestellt werden."/>
+    </star>
+    <star value="[*]">
+      <text value="Durch Klick auf den einen Kalendereintrag öffnet sich die Übersichtsseite."/>
+    </star>
+    <star value="[*]">
+      <text value="Hier sind alle Logs der jeweiligen Raid-ID nach Bossen sortiert."/>
+    </star>
+  </list>
+  <important value="[important]">
+    <video value="[video,uri=https://www.youtube.com/watch?v=3IO4AL9JrsE]" uri="https://www.youtube.com/watch?v=3IO4AL9JrsE"/>
+  </important>
+  <subchapter value="[subchapter]">
+    <text value="Wie kann ich mich mit anderen vergleichen?"/>
+  </subchapter>
+  <i value="[i]">
+    <text value="Das geht am besten über die &quot;Compare&quot;-Funktion von "/>
+    <url value="[url,uri=https://www.warcraftlogs.com]" uri="https://www.warcraftlogs.com">
+      <text value="Warcraftlogs"/>
+    </url>
+    <text value=", die in folgendem Tutorial vorgestellt wird."/>
+  </i>
+  <important value="[important]">
+    <video value="[video,uri=https://www.youtube.com/watch?v=b9Datm_h5ZI]" uri="https://www.youtube.com/watch?v=b9Datm_h5ZI"/>
+  </important>
+</guide>

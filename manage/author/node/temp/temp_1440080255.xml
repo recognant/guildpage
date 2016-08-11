@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<guide>
+  <title value="[title]">
+    <list value="[list]">
+      <star value="[*]">
+        <text value="LOL"/>
+      </star>
+    </list>
+    <list value="[list,type=numeric]" type="numeric">
+      <star value="[*]">
+        <size value="[size,type=]" type="">
+          <i value="[i]">
+            <u value="[u]">
+              <b value="[b]">
+                <code value="[code]">
+                  <text value="noom"/>
+                  <important value="[important]">
+                    <text value="bbb"/>
+                    <alert value="[alert,type=danger]" type="danger">
+                      <text value="hhh"/>
+                    </alert>
+                  </important>
+                </code>
+              </b>
+            </u>
+          </i>
+        </size>
+      </star>
+    </list>
+  </title>
+</guide>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<guide>
+  <title value="[title]">
+    <text value="ghgh"/>
+    <size value="[size,type=x-small]" type="x-small">
+      <text value="hi"/>
+    </size>
+  </title>
+  <header value="[header]"/>
+</guide>
