@@ -1,0 +1,59 @@
+<?php
+
+include_once(dirname(__FILE__) . "/../../modules/database/database.php");
+include_once(dirname(__FILE__) . "/../../modules/crawl/fetchdata.php");
+include_once(dirname(__FILE__) . "/../../modules/utils.php");
+
+$character = array_key_exists("character", $_GET) ? mb_strtolower($_GET['character'], 'UTF-8') : "";
+$server = array_key_exists("server", $_GET) ? mb_strtolower($_GET['server'], 'UTF-8') : "";
+$region = array_key_exists("region", $_GET) ? mb_strtolower($_GET['region'], 'UTF-8') : "";
+$raid = array_key_exists("raid", $_GET) ? (empty($_GET['raid']) ? null : intval($_GET['raid'])) : null;
+$metric = array_key_exists("metric", $_GET) ? (empty($_GET['metric']) ? "" : mb_strtolower($_GET['metric'], 'UTF-8')) : "";
+$encounter = array_key_exists("encounter", $_GET) ? (empty($_GET['encounter']) ? null : intval($_GET['encounter'])) : null;
+
+if( empty($character) || empty($server) || empty($region) || ( !empty($metric) && !Metric::is_metric($metric) ) ) {
+	Error::INTERNAL_SERVER_ERROR("something is off...");
+}
+
+try {
+	$db = Database::getInstance();
+	
+	if(!$db->is_member($character, $server, $region)) {
+		Error::INTERNAL_SERVER_ERROR("Character not found!");
+	}
+
+	switch($metric) {
+	case Metric::$DPS:
+		$rankings = $db->get_dps_rank($character, $server, $region, $raid, $encounter, null);
+		break;
+	case Metric::$HPS:
+		$rankings = $db->get_hps_rank($character, $server, $region, $raid, $encounter, null);
+		break;
+	case Metric::$KRSI:
+		$rankings = array();
+		break;
+	case "":
+		$rankings1 = $db->get_dps_rank($character, $server, $region, $raid, $encounter, null);
+		$rankings2 = $db->get_hps_rank($character, $server, $region, $raid, $encounter, null);
+		$rankings = array_merge($rankings1, $rankings2);
+		break;
+	default:
+		Error::INTERNAL_SERVER_ERROR("something is off...");
+	}
+
+} catch (Exception $e) {
+	Error::INTERNAL_SERVER_ERROR($e->getMessage());
+}
+
+$result = array(
+	"metric" => $metric,
+	"character" => $character,
+	"server" => $server,
+	"region" => $region,
+	"total" => sizeof($rankings),
+	"rankings" => $rankings
+);
+
+Utils::SEND_JSON($result);
+
+?>

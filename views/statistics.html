@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+</head>
+
+
+<body>
+
+	<div class="row">
+	
+		<h2 style="color: #fff;"><i class="fa fa-area-chart fa-fw"></i>Statistiken</h2>
+	
+		<div class="card">
+				
+			<form class="form-inline" role="form">
+				
+				<div class="form-group">
+					<select class="form-control" id="zone-selector" onchange="loadStatistics()"></select>
+				</div>
+				
+				<div class="form-group">
+					<select class="form-control" id="difficulty-selector" onchange="loadStatistics()">
+						<option value="">Alle</option>
+					</select>
+				</div>
+				
+				<div class="form-group pull-right">
+					<button type="button" class="btn btn-warning btn-circle" data-toggle="collapse" data-target="#help-box"><i class="fa fa-question"></i></button>
+				</div>
+
+			</form>
+			
+			<div id="help-box" class="collapse">
+				<div class="alert alert-warning" style="margin: 10px 0 10px 0;">
+					<h4>Erläuterung:</h4>
+					<p><i>Durch die <b>Dropdown-Menüs</b> (<i class="fa fa-caret-down"></i>) könnt ihr den gewünschten <b>Raid</b> und <b>Schwierigkeitsgrad</b> auswählen, für den die Leistung der Gildenmitglieder in der Graphik angezeigt werden soll. Zusätzlich lässt sich einstellen, ob Rankings <b>mit Tode</b> bzw. <b>ohne Tode</b> in die Berechnung der Leistung einfließen.</i>
+					</p>
+					<p>Die Graphiken zeigen jeweils drei Kurven an: <ul><li><b>Min:</b> Die schlechteste erzielte Leistung.<li><b>AVG:</b> Die durchschnittlich erzielte Leistung.<li><b>Max:</b> Die beste erzielte Leistung.</ul> Kurven können ausgeblendet werden, indem man auf das zugehörige Kürzel in der Legende klickt.
+					</p>
+				</div>
+			</div>
+
+			<h3>DPS-Performance</h3>
+			<div id="highcharts-dps"></div>
+			
+			<h3>HPS-Performance</h3>
+			<div id="highcharts-hps"></div>
+
+		</div>
+		
+	</div>
+	
+</body>
+
+<script>
+
+$(document).ready(function() {
+
+	webi.loadJSON("controller/zones/index.php").done(function(data) {
+		var id = 0;
+	
+		if(data.total > 0) {
+			var zones = data.zones;
+
+			for(var i = 0; i < zones.length; i++) {
+				var zone = zones[i];
+				id = parseInt(zone['id']);
+				$('#zone-selector').append("<option value=" + zone['id'] + ">" + zone['name'] + "</option>");
+			}
+
+		}
+				
+		$('#zone-selector').val(id);
+		
+		webi.loadJSON("controller/difficulties/index.php").done(function(data) {
+			if(data.total > 0) {
+				var difficulties = data.difficulties;
+
+				for(var difficulty in difficulties) {
+					var id = difficulties[difficulty];
+					$('#difficulty-selector').append("<option value=" + id + ">" + difficulty + "</option>");
+				}
+
+			}
+			
+			loadStatistics();
+			
+		});
+	});
+
+});
+
+function loadStatistics() {
+	var id = $('#zone-selector').val() || "";
+	var difficulty = $('#difficulty-selector').val() || "";
+	var deaths = $('#death-selector').val() || "0";
+		
+	var __load = function(container, url) {
+		container.removeClass('chart');
+		
+		webi.content.loadJSON(container, url).done(function(data) {
+			if(data.total > 0) {
+				var rankings = data.rankings;
+				
+				var players = [];
+				var min = [];
+				var avg = [];
+				var max = [];
+
+				for(var i = 0; i < rankings.length; i++) {
+					var ranking = rankings[i];
+					players.push(ranking['name']);
+					min.push((parseFloat(ranking['min'])*100).round(2));
+					avg.push((parseFloat(ranking['avg'])*100).round(2));
+					max.push((parseFloat(ranking['max'])*100).round(2));
+				}
+				
+				$Chart.plotGuildranks(this, players, [{ name: 'Max', data: max }, { name: 'AVG', data: avg }, { name: 'Min', data: min }]);
+			} else {
+				this.removeClass('chart');
+				this.html("<div class='alert alert-danger'><i class='fa fa-ban'></i><b>Keine Daten vorhanden!</b></div>");
+			}
+		}).fail(function() {
+			this.removeClass('chart');
+			this.html("<div class='alert alert-danger'><i class='fa fa-ban'></i><b>Keine Daten vorhanden!</b></div>");
+		});
+		
+	}
+
+	__load($('#highcharts-dps'), "controller/rankings/guild.php?raid=" + id + "&metric=bossdps&difficulty=" + difficulty);
+	__load($('#highcharts-hps'), "controller/rankings/guild.php?raid=" + id + "&metric=hps&difficulty=" + difficulty);
+}
+
+</script>
+
+
+</html>
