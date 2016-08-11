@@ -1,0 +1,54 @@
+<html>
+
+<head>
+</head>
+
+<body>
+
+
+<?php
+include_once(dirname(__FILE__) . "/../../modules/database/database.php");
+include_once(dirname(__FILE__) . "/../../modules/utils.php");
+
+$db = Database::getInstance();
+$videos = $db->get_videos();
+
+?>
+
+<div class="row">
+
+	<?php
+	foreach($videos as $video) {
+		$tn=$video['thumbnail'];
+		$title=$video['title'];
+		$author=$video['author'];
+		$owner=$video['owner'];
+	?>
+		<div class="col-xs-3">
+			<div class="video-wrapper">
+				<img style="cursor: pointer;" onclick="showmodal('<?php echo $video['ytid']; ?>', '<?php echo $title; ?>');" src="<?php echo $tn; ?>" class="img-responsive video-thumbnail">
+				<a style="cursor: pointer;" onclick="showmodal('<?php echo $video['ytid']; ?>', '<?php echo $title; ?>');" title="<?php echo $title; ?>" class="video-title text-ellipsis text-ellipsis-2"><?php echo $title; ?></a>
+				<p class="video-author">von <a tab-index="-1" target="_blank" href="<?php echo $owner; ?>" title="<?php echo $author; ?>"><?php echo $author; ?></a></p>
+			</div>
+		</div>
+	<?php
+	}
+	?>
+
+
+</div>
+
+<script>
+	function showmodal(ytid, yttitle) {
+		$('#yt-modal-title').html(yttitle);
+		$("#yt-modal-iframe").attr('src', 'https://www.youtube.com/embed/' + ytid);
+		$('#yt-modal').modal({ backdrop:'static', keyboard: false });
+		$("#yt-modal").on('hidden.bs.modal', function (e) { 
+			$("#yt-modal-iframe").attr("src", $("#yt-modal-iframe").attr("src"));
+		});
+	}
+</script>
+
+</body>
+
+</html>

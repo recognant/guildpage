@@ -1,0 +1,55 @@
+<!DOCTYPE>
+<html>
+
+<head>
+	<title></title>
+</head>
+
+<body>
+		
+	<div id="mymodal" class="modal fade">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h4 class="modal-title">Aktualisieren</h4>
+				</div>
+				<div class="modal-body" style="height: 220px;">
+					
+					<form id="myform" class="form" onsubmit="reload(); return false;">
+					
+						<div class="form-group">
+							<select class="form-control" id="zone-selector"></select>
+						</div>
+					
+						<div class="form-group">
+							<input class="form-control" id="reload-input_name" name="character" placeholder="Name" required>
+						</div>
+						
+						<div class="form-group">
+							<input class="form-control" id="reload-input_server" name="server" placeholder="Server" required>
+						</div>
+						
+						<div class="form-group">
+							<select class="form-control" id="reload-input_region" name="region" placeholder="Region">
+								<option value="eu">EU</option>
+								<option value="us">US</option>
+							</select>
+						</div>
+						
+					</form>
+					
+					<div id="modal-status"></div>
+					
+				</div>
+		  
+				<div class="modal-footer">
+					<button type="button" onclick="$('#myform').submit();" id="modal-ok" class="btn btn-success">Ok</button>
+					<button type="button" class="btn btn-default" data-dismiss="modal" id="modal-abort">Abbrechen</button>
+				</div>
+			</div><!-- /.modal-content -->
+		</div><!-- /.modal-dialog -->
+	</div><!-- /.modal -->
+	
+</body>
+
+</html>
