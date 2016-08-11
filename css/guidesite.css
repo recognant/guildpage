@@ -1,0 +1,48 @@
+.gs-chapter {
+	padding-top: 40px;
+	font-weight: 700;
+}
+
+.gs-text-x-small {
+	font-size: 10px;
+}
+.gs-text-small {
+	font-size: 12px;
+}
+.gs-text-large {
+	font-size: 18px;
+}
+.gs-text-x-large {
+	font-size: 20px;
+}
+.gs-text-xx-large {
+	font-size: 24px;
+}
+
+.gs-text-italic {
+	font-style: italic;
+}
+.gs-text-bold {
+	font-weight: bold;
+}
+.gs-text-underlined {
+	text-decoration: underline;
+}
+
+.gs-video-width {
+	width: 75%;
+}
+
+.gs-important {
+	margin: 20px 10px;
+}
+
+.gs-img {
+	width: 100%;
+	padding: 10px 0;
+}
+
+.gs-media-img {
+	max-width: 100px;
+	height: auto;
+}

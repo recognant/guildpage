@@ -1,0 +1,457 @@
+body {
+	padding: 0;
+	margin: 0;
+	/*background-image: url("../img/background.jpg");
+	position: static;*/
+}
+
+.page-bg {
+	margin: 0 0 20px 0;
+	border-bottom: 1px solid #000;
+	height: 401px;
+	background: url("http://eu.battle.net/forums/static/images/welcome-banners/wow-glass.jpg");
+	background-position: 50% 0;
+    background-repeat: no-repeat;
+}
+
+.welcome-text {
+	font-size: 3.75rem;
+	font-weight: bold;
+    line-height: 1.2;
+   	max-width: 50rem;
+    text-align: left;
+	color: #fff;
+	text-shadow: 0 0 5px rgba(0,0,0,.5);
+}
+
+.welcome-logo {
+	max-height: 200px;
+	width: auto;
+}
+
+.welcome {
+	max-width: 1170px;
+	margin: auto;
+	bottom: 20px;
+}
+
+.footer {
+	padding-top: 50px;
+    width: 100%;
+    height: 60px;
+}
+
+.navbar-brand,
+.navbar-nav li a {
+    line-height: 80px;
+    height: 80px;
+    padding-top: 0;
+	font-size: 1.5rem;
+}
+
+.fa-text-icon {
+	 margin-right: 5px;
+}
+ 
+.no-underline:hover {
+	text-decoration: none;
+}
+
+.widget {
+	margin-bottom: 10px;
+	padding: 0 0 5px 5px;
+	width: 100%;
+}
+
+.widget > img {
+    margin: auto;
+	width: 100%;
+	height: auto;
+}
+
+.carousel-indicators > li {
+	width: 15px;
+	height: 15px;
+}
+
+.carousel-indicators .active {
+	width: 18px;
+	height: 18px;
+}
+
+.no-list {
+	list-style: none;
+	padding-left: 0;
+}
+
+.panel-heading {
+	padding-top: 1px;
+	padding-bottom: 5px;
+}
+.panel-inverse {
+  border-color: #080808;
+}
+.panel-inverse > .panel-heading {
+	color: #fff;
+	background-color: #222;
+	border-color: #080808;
+}
+.panel-inverse > .panel-heading + .panel-collapse > .panel-body {
+  border-top-color: #080808;
+}
+.panel-inverse > .panel-heading .badge {
+  color: #fff;
+  background-color: #222;
+}
+.panel-inverse > .panel-footer + .panel-collapse > .panel-body {
+  border-bottom-color: #080808;
+}
+
+.card {
+	box-shadow: 0 0 0 1px #000;
+	border-color: rgba(255,255,255,.15);
+    border-style: solid;
+	border-width: 1px;
+	padding: 10px;
+	color: #f8b700;
+}
+
+hr {
+	border-top: 1px solid #ddd;
+}
+
+.content-loader {
+	padding-top: 10px;
+	padding-left: 10px;
+	font-size: 25px;
+}
+
+.center {
+	display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+	height: 100%;
+}
+
+blockquote {
+  border-left: 0;
+  quotes: "\201C""\201D""\2018""\2019";
+}
+blockquote:before {
+  color: #ccc;
+  content: open-quote;
+  font-size: 4em;
+  line-height: 0.1em;
+  margin-right: 0.25em;
+  vertical-align: -0.4em;
+}
+blockquote p {
+  display: inline;
+}
+
+.nav-tabs>li.active>a, .nav-tabs>li.active>a:hover , .nav-tabs>li.active>a:focus {
+	background-color: #337ab7;
+	color: #fff;
+	border-bottom: 1px solid #ddd;
+}
+
+/* Tables */
+
+.table tbody tr:nth-child(odd) {
+  background-color: #12121f;
+}
+
+.table>tbody>tr>td, .table>tbody>tr>th, .table>tfoot>tr>td, .table>tfoot>tr>th, .table>thead>tr>td, .table>thead>tr>th {
+	border-top: 1px solid #000;
+}
+
+.table>thead>tr>th {
+	border-bottom: 2px solid #000;
+}
+
+.icon {
+	background-size: 15px;
+	background-repeat: no-repeat;
+	background-position: center;
+	padding-right: 20px;
+	margin-right: 10px;
+}
+h1 > .icon {
+	background-size: 40px;
+	padding-right: 45px;
+}
+.icon.icon-priest {
+	background-image: url("http://bnetcmsus-a.akamaihd.net/cms/forum_icon/MMF2M70OD4PY1465340163646.png");
+}
+.icon.icon-warlock {
+	background-image: url("http://bnetcmsus-a.akamaihd.net/cms/forum_icon/Y65BR5SJIAKM1465340163689.png");
+}
+.icon.icon-warrior {
+	background-image: url("http://bnetcmsus-a.akamaihd.net/cms/forum_icon/Q21ASBT2SDXX1465340163697.png");
+}
+.icon.icon-shaman {
+	background-image: url("http://bnetcmsus-a.akamaihd.net/cms/forum_icon/TGVJ0Y6O051R1465340163670.png");
+}
+.icon.icon-mage {
+	background-image: url("http://bnetcmsus-a.akamaihd.net/cms/forum_icon/KONFY3G21NRT1465340163602.png");
+}
+.icon.icon-deathknight {
+	background-image: url("http://bnetcmsus-a.akamaihd.net/cms/forum_icon/6D5HKWY2GULD1465340163386.png");
+}
+.icon.icon-monk {
+	background-image: url("http://bnetcmsus-a.akamaihd.net/cms/forum_icon/MD3875H6PEN31465340163613.png");
+}
+.icon.icon-druid {
+	background-image: url("http://bnetcmsus-a.akamaihd.net/cms/forum_icon/BIML5YS7P8XA1465340163522.png");
+}
+.icon.icon-paladin {
+	background-image: url("http://bnetcmsus-a.akamaihd.net/cms/forum_icon/FTPZBBV8LWHM1465340163625.png");
+}
+.icon.icon-hunter {
+	background-image: url("http://bnetcmsus-a.akamaihd.net/cms/forum_icon/3AP8QPDFMH191465340163595.png");
+}
+.icon.icon-rogue {
+	background-image: url("http://bnetcmsus-a.akamaihd.net/cms/forum_icon/4K4NG17DH5OC1465340163651.png");
+}
+.icon.icon-damage {
+	background-image: url("../img/roles/damage.jpg");
+}
+.icon.icon-healer {
+	background-image: url("../img/roles/heal.jpg");
+}
+.icon.icon-tank {
+	background-image: url("../img/roles/tank.jpg");
+}
+.icon.icon-skull {
+	background-image: url("../img/skull.png");
+}
+.icon.icon-forum {
+	background-image: url("http://bnetcmsus-a.akamaihd.net/cms/forum_icon/L3B2BXGBMI8F1465340163947.png")
+}
+
+div.chart {
+	width: 100%;
+}
+
+.modal-page {
+	height: 100%;
+}
+.modal-page.in {
+	display: none;
+}
+
+/* Bootstrap3 Cirlce Buttons */
+
+.btn-circle {
+	border-radius: 50%;
+}
+.btn-circle.btn-xs {
+}
+.btn-circle.btn-sm {
+	padding: 5px 7px;
+}
+.btn-circle.btn-lg {
+	padding: 6px 10px;
+}
+.btn-circle.btn-lg {
+	padding: 10px 14px;
+}
+.btn-circle.btn-danger {
+	border: 1px solid #ac2925;
+}
+.btn-circle.btn-warning {
+	border: 1px solid #d58512;
+}
+.btn-circle.btn-info {
+	border: 1px solid #269abc;
+}
+.btn-circle.btn-default {
+	border: 1px solid black;
+}
+.btn-circle.btn-success {
+	border: 1px solid #398439;
+}
+.btn-circle.btn-primary {
+	border: 1px solid #204d74;
+}
+
+/* Bootstrap3 Submenus */
+.dropdown-submenu {
+    position:relative;
+}
+.dropdown-submenu>.dropdown-menu {
+    top:0;
+    left:100%;
+    margin-top:-6px;
+    margin-left:-1px;
+    -webkit-border-radius:0 6px 6px 6px;
+    -moz-border-radius:0 6px 6px 6px;
+    border-radius:0 6px 6px 6px;
+}
+.dropdown-submenu:hover>.dropdown-menu {
+    display:block;
+}
+.dropdown-submenu>a:after {
+    display:block;
+    content:" ";
+    float:right;
+    width:0;
+    height:0;
+    border-color:transparent;
+    border-style:solid;
+    border-width:5px 0 5px 5px;
+    border-left-color:#cccccc;
+    margin-top:5px;
+    margin-right:-10px;
+}
+.dropdown-submenu:hover>a:after {
+    border-left-color:#ffffff;
+}
+.dropdown-submenu.pull-left {
+    float:none;
+}
+.dropdown-submenu.pull-left>.dropdown-menu {
+    left:-100%;
+    margin-left:10px;
+    -webkit-border-radius:6px 0 6px 6px;
+    -moz-border-radius:6px 0 6px 6px;
+    border-radius:6px 0 6px 6px;
+}
+.dropdown-menu > li a {
+	height: 24px;
+	line-height: 24px;
+}
+
+/* TS3 Viewer */
+.ts3 {
+	list-style: none;
+	padding: 10px;
+	user-select: none;
+	-moz-user-select: none;
+	-webkit-user-select: none;
+}
+.ts3.ts3-body {
+	margin: 0;
+	background-image: -webkit-linear-gradient(top, #e8e8e8 0%, #f5f5f5 100%);
+	background-image:      -o-linear-gradient(top, #e8e8e8 0%, #f5f5f5 100%);
+	background-image: -webkit-gradient(linear, left top, left bottom, from(#e8e8e8), to(#f5f5f5));
+	background-image:         linear-gradient(to bottom, #e8e8e8 0%, #f5f5f5 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffe8e8e8', endColorstr='#fff5f5f5', GradientType=0);
+	background-repeat: repeat-x;
+	-webkit-box-shadow: inset 0 1px 3px rgba(0, 0, 0, .05), 0 1px 0 rgba(255, 255, 255, .1);
+	box-shadow: inset 0 1px 3px rgba(0, 0, 0, .05), 0 1px 0 rgba(255, 255, 255, .1);
+	border-radius: 4px;
+}
+.ts3.channel {
+	white-space:nowrap;
+	overflow: hidden;
+	padding: 0;
+	text-overflow: ellipsis;
+	-o-text-overflow: ellipsis;
+}
+span.collapser.selectable {
+	cursor: pointer;
+}
+.ts3.channel > span.collapser:before {
+	content: "\e114";
+    left: 6px;
+    top: -1px;
+    font-weight: bold;
+    font-family: 'Glyphicons Halflings';
+    font-size: 10px;
+}
+.ts3.channel.in > span.collapser:before {
+	content: "\e080";
+}
+.ts3.channel.empty > span.collapser:before {
+	content: " ";
+	padding-left: 10px;
+}
+.ts3.channel > .ts3.players {
+	font-weight: normal;
+	padding: 0;
+	padding-left: 28px;
+}
+.ts3.players > .ts3.channel, .ts3.players > .ts3.player {
+	padding: 0;
+	font-weight: normal;
+	text-overflow: ellipsis;
+	-o-text-overflow: ellipsis;
+	overflow: hidden;
+}
+.ts3.player > i {
+	color: #4287FF;
+	padding: 0 5px 0 0;
+}
+
+/* Video */
+.video-wrapper {
+	height: 220px;
+	padding: 5px;
+}
+.video-thumbnail {
+	height: 145px;
+	margin: auto;
+}
+.video-title {
+	display: block;
+	margin: 5px 0 0;
+	padding: 0;
+}
+.video-author {
+	color: #767676;
+	margin: 0;
+	line-height: 1.3em;
+	font-size: 12px;
+}
+.video-author > a {
+	color: #767676;
+}
+.video-author > a:hover, .video-author > a:focus {
+	color: #337ab7;
+}
+.text-ellipsis {
+	display: -webkit-box !important;
+    -webkit-box-orient: vertical;
+	background-color: #fff;
+    line-height: 1.2em;
+    overflow: hidden;
+    position: relative;
+    text-overflow: ellipsis;
+	-o-text-overflow: -o-ellipsis-lastline;
+    white-space: normal;
+    word-wrap: break-word;
+	font-weight: bold;
+	font-size: 100%;
+}
+.text-ellipsis.text-ellipsis-2 {
+	-webkit-line-clamp: 2;
+	max-height: 2.6em;
+}
+
+.close.close-overlay {
+	border-radius: 50%;
+    border: 2px solid;
+	background: #fff;
+    width: 30px;
+    height: 30px;
+    text-align: -webkit-center;
+    text-align: center;
+	text-shadow: none;
+    position: absolute;
+    top: -13px;
+    right: -13px;
+    color: #000;
+    opacity: 1;
+    cursor: pointer;
+    z-index: 500;
+}
+.close.close-overlay:focus, .close.close-overlay:hover {
+    background: #ccc;
+}
+
+body {
+	background: url("http://eu.battle.net/forums/static/images/backgrounds/background-wow-top.jpg") center -200px no-repeat, url("http://eu.battle.net/forums/static/images/backgrounds/background-wow-repeat.jpg") center 1800px repeat-y #231a13;
+}
