@@ -305,6 +305,7 @@ class Database {
 		$this->connect();
 		$stmt = $this->con->prepare("insert into dps_ranking (name, server, region, encounter_id, class, spec, guild, rank, outOf, duration, startTime, reportID, fightID, difficulty, size, itemLevel, total) values (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?) ON DUPLICATE KEY UPDATE rank=values(rank), outOf=values(outOf), total=values(total), guild=values(guild), spec=values(spec), itemLevel=values(itemLevel), size=values(size), fightID=values(fightID), reportID=values(reportID), startTime=values(startTime), duration=values(duration);");
 		
+		$exc = null;
 		mysqli_autocommit($this->con, FALSE);
 		
 		if(!$stmt) {
@@ -347,15 +348,25 @@ class Database {
 			}
 			
 			mysqli_commit($this->con);
+			mysqli_autocommit($this->con, TRUE);
 			return $affected_rows;
 		} 
 		catch(Exception $e) {
 			mysqli_rollback($this->con);
-			throw new Exception($stmt->error, $stmt->errno);
+			$exc = new Exception($stmt->error, $stmt->errno);
 		}
-		finally {
-			$stmt->close();
-			mysqli_autocommit($this->con, TRUE);
+		
+		mysqli_autocommit($this->con, TRUE);
+		
+		try {
+			if($stmt) {
+				$stmt->close();
+			}
+		} catch(Exception $e) {
+		}
+		
+		if( $exc !== null ) {
+			throw $exc;
 		}
 	}
 	
@@ -363,6 +374,7 @@ class Database {
 		$this->connect();
 		$stmt = $this->con->prepare("insert into hps_ranking (name, server, region, encounter_id, class, spec, guild, rank, outOf, duration, startTime, reportID, fightID, difficulty, size, itemLevel, total) values (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?) ON DUPLICATE KEY UPDATE rank=values(rank), outOf=values(outOf), total=values(total), guild=values(guild), spec=values(spec), itemLevel=values(itemLevel), size=values(size), fightID=values(fightID), reportID=values(reportID), startTime=values(startTime), duration=values(duration);");
 		
+		$exc = null;
 		mysqli_autocommit($this->con, FALSE);
 		
 		if(!$stmt) {
@@ -405,16 +417,25 @@ class Database {
 			}
 			
 			mysqli_commit($this->con);
+			mysqli_autocommit($this->con, TRUE);
 			return $affected_rows;
-		
 		} 
 		catch(Exception $e) {
 			mysqli_rollback($this->con);
-			throw new Exception($stmt->error, $stmt->errno);
+			$exc = new Exception($stmt->error, $stmt->errno);
 		}
-		finally {
-			$stmt->close();
-			mysqli_autocommit($this->con, TRUE);
+		
+		mysqli_autocommit($this->con, TRUE);
+		
+		try {
+			if($stmt) {
+				$stmt->close();
+			}
+		} catch(Exception $e) {
+		}
+		
+		if( $exc !== null ) {
+			throw $exc;
 		}
 	}
 	

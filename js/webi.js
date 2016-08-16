@@ -72,15 +72,3 @@ webi.loadJSON = function(url, data) {
 	
 	return $.getJSON(__url, __data);
 };
-
-webi.widgets = {};
-
-webi.widgets.load = function() {
-	$("#widgets").empty();
-	$("#widgets").append("<div class='row'><div class='widget'><img src='http://wowprogress.com/guild_img/588361/out/type.site'></img></div></div>");
-	$("#widgets").append("<div class='row'><div class='widget'><div id='ts3-viewer' class='panel panel-inverse'></div></div></div>");
-	
-	//$("#widgets").append("<div class='row'><div class='widget'><iframe src='http://teamspeak-viewer.4players.de/index.php/de/62.104.20.114:10025/ViewServer.html?usesimpleheader=1&amp;fixedwidth=150&amp;viewertreeonly=1&amp;loginsmall=1' scrolling='auto' style='max-width:100%; position:relative; height:400px;'></iframe></div></div>");
-	//ts3viewer.load("https://api.gamerlabs.net/?type=teamspeak3&host=62.104.20.114&port=10025");
-	ts3viewer.load("http://localhost/guild/modules/teamspeak/query.php");
-};
