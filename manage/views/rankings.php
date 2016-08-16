@@ -8,23 +8,27 @@
 <body>
 	
 	<div class="row">
+	
+		<div class="card">
 			
-		<table class="table table-striped">
-			
-			<thead>
-				<th>Name</th>
-				<th>Server</th>
-				<th>Region</th>
-				<th></th>
-				<th></th>
-				<th></th>
-				<th></th>
-			</thead>
-			
-			<tbody id="table-rankings">
-			</tbody>
-			
-		</table>
+			<table class="table table-striped">
+				
+				<thead>
+					<th>Name</th>
+					<th>Server</th>
+					<th>Region</th>
+					<th></th>
+					<th></th>
+					<th></th>
+					<th></th>
+				</thead>
+				
+				<tbody id="table-rankings">
+				</tbody>
+				
+			</table>
+		
+		</div>
 	
 	</div>
 	
@@ -71,6 +75,9 @@
 				var __this = this;
 				
 				webi.loadJSON("controller/rankings/index.php").done(function(data) {
+					if(data.status == 0) {
+						data = data.msg
+					}
 					__this.__rankings = data.rankings;
 					__this.refresh();
 				});

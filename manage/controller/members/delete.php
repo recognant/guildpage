@@ -8,16 +8,17 @@ $server = array_key_exists("server", $_GET) ? mb_strtolower($_GET['server'], 'UT
 $region = array_key_exists("region", $_GET) ? mb_strtolower($_GET['region'], 'UTF-8') : "";
 
 if( empty($character) || empty($server) || empty($region) ) {
-	Error::INTERNAL_SERVER_ERROR("Missing or wrong parameters given!");
+	INTERNAL_SERVER_ERROR("Missing or wrong parameters given!");
 }
 
 try {
 	$db = Database::getInstance();
 	$db->delete_member($character, $server, $region);
+	$db->disconnect();
 } catch (Exception $e) {
-	Error::INTERNAL_SERVER_ERROR($e->getMessage());
+	INTERNAL_SERVER_ERROR($e->getMessage());
 }
 
-Utils::SEND_OK();
+SEND_OK();
 
 ?>

@@ -7,28 +7,32 @@
 	
 		<div class="row">
 		
-			<div class="btn-group pull-right">
-				<button type="button" class="btn btn-default" onclick="__Guides.openModal();"><i class='fa fa-pencil-square-o fa-fw'></i> Neuer Guide</button>
-			</div>
+			<div class="card">
+		
+				<div class="btn-group pull-right">
+					<button type="button" class="btn btn-default" onclick="__Guides.openModal();"><i class='fa fa-pencil-square-o fa-fw'></i> Neuer Guide</button>
+				</div>
 
-			<table class="table table-striped" role="table">
+				<table class="table table-striped" role="table">
+						
+					<thead>
+						<tr>
+							<th>Name</th>
+							<th>Autor</th>
+							<th>Pfad</th>
+							<th>Letzte Aktualisierung</th>
+							<th></th>
+							<th></th>
+							<th></th>
+						</tr>
+					</thead>
+
+					<tbody id="guides">
+					</tbody>
 					
-				<thead>
-					<tr>
-						<th>Name</th>
-						<th>Autor</th>
-						<th>Pfad</th>
-						<th>Letzte Aktualisierung</th>
-						<th></th>
-						<th></th>
-						<th></th>
-					</tr>
-				</thead>
-
-				<tbody id="guides">
-				</tbody>
+				</table>
 				
-			</table>
+			</div>
 			
 			<div id="mymodal" class="modal fade">
 				<div class="modal-dialog">
@@ -82,6 +86,10 @@
 				var __this = this;
 			
 				webi.content.loadJSON($('#guides'), "author/controller/guides/index.php").done(function(data) {
+					if(data.status == 0) {
+						data = data.msg;
+					}
+				
 					if( $.isPlainObject(data) && data.total > 0 ) {
 						__this.__size = data.total;
 						__this.__guides = data.guides;

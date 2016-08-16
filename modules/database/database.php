@@ -37,7 +37,7 @@ class Database {
 		}
 	}
 	
-	private function insert_zone($id=0, $name="", $frozen="false") {
+	private function insert_zone($id=0, $name="", $frozen="0") {
 		$this->connect();
 		$stmt = $this->con->prepare("insert into raid (id, name, frozen) values (?,?,?) ON DUPLICATE KEY UPDATE name=values(name), frozen=values(frozen);");
 		$exc = null;
@@ -46,6 +46,10 @@ class Database {
 		
 			if(!$stmt) {
 				throw new Exception($this->con->error, $this->con->errno);
+			}
+			
+			if(empty($frozen)) {
+				$frozen = "0";
 			}
 			
 			if( !$stmt->bind_param("iss", $id, $name, $frozen) ) {
@@ -297,80 +301,20 @@ class Database {
 		return false;
 	}
 	
-	private function insert_dps_ranking($character, $server, $region, $encounter_id=0, $class=1, $spec=1, $guild="", $rank=1, $outOf=1, $duration=1, $startTime=1, $reportID="", $fightID=1, $difficulty=1, $size=1, $itemLevel=1, $total=1.0) {
+	public function insert_dps_rankings($character, $server, $region, $rankings) {
 		$this->connect();
-		$stmt = $this->con->prepare("insert into dps_ranking (name, server, region, encounter_id, class, spec, guild, rank, outOf, duration, startTime, reportID, fightID, difficulty, size, itemLevel, total) values (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?) ON DUPLICATE KEY UPDATE rank=values(rank), outOf=values(outOf);");
-		$exc = null;
+		$stmt = $this->con->prepare("insert into dps_ranking (name, server, region, encounter_id, class, spec, guild, rank, outOf, duration, startTime, reportID, fightID, difficulty, size, itemLevel, total) values (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?) ON DUPLICATE KEY UPDATE rank=values(rank), outOf=values(outOf), total=values(total), guild=values(guild), spec=values(spec), itemLevel=values(itemLevel), size=values(size), fightID=values(fightID), reportID=values(reportID), startTime=values(startTime), duration=values(duration);");
 		
-		try {
+		mysqli_autocommit($this->con, FALSE);
 		
-			if(!$stmt) {
-				throw new Exception($this->con->error, $this->con->errno);
-			}
-
-			if( !$stmt->bind_param("sssiiisiiiisiiiid", $character, $server, $region, $encounter_id, $class, $spec, $guild, $rank, $outOf, $duration, $startTime, $reportID, $fightID, $difficulty, $size, $itemLevel, $total) ) {
-				throw new Exception($stmt->error, $stmt->errno);
-			}
-				
-			if( !$stmt->execute() ) {
-				throw new Exception($stmt->error, $stmt->errno);
-			}
-			
-			$stmt->close();
-			return mysqli_insert_id($this->con);
-		
-		} catch(Exception $e) {
-			$exc = new Exception($stmt->error, $stmt->errno);
+		if(!$stmt) {
+			throw new Exception($this->con->error, $this->con->errno);
 		}
-		
-		try {
-			$stmt->close();
-		} catch(Exception $e) {
-		}
-		
-		if( $exc !== null ) {
-			throw $exc;
-		}
-	}
 	
-	private function insert_hps_ranking($character, $server, $region, $encounter_id=0, $class=1, $spec=1, $guild="", $rank=1, $outOf=1, $duration=1, $startTime=1, $reportID="", $fightID=1, $difficulty=1, $size=1, $itemLevel=1, $total=1.0) {
-		$this->connect();
-		$stmt = $this->con->prepare("insert into hps_ranking (name, server, region, encounter_id, class, spec, guild, rank, outOf, duration, startTime, reportID, fightID, difficulty, size, itemLevel, total) values (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?) ON DUPLICATE KEY UPDATE rank=values(rank), outOf=values(outOf);");
-		$exc = null;
-		
 		try {
-		
-			if(!$stmt) {
-				throw new Exception($this->con->error, $this->con->errno);
-			}
-
-			if( !$stmt->bind_param("sssiiisiiiisiiiid", $character, $server, $region, $encounter_id, $class, $spec, $guild, $rank, $outOf, $duration, $startTime, $reportID, $fightID, $difficulty, $size, $itemLevel, $total) ) {
-				throw new Exception($stmt->error, $stmt->errno);
-			}
-				
-			if( !$stmt->execute() ) {
-				throw new Exception($stmt->error, $stmt->errno);
-			}
 			
-			$stmt->close();
-			return mysqli_insert_id($this->con);
-		
-		} catch(Exception $e) {
-			$exc = new Exception($stmt->error, $stmt->errno);
-		}
-		
-		try {
-			$stmt->close();
-		} catch(Exception $e) {
-		}
-		
-		if( $exc !== null ) {
-			throw $exc;
-		}
-	}
-	
-	public function init_ranking($character, $server, $region, array $rankings, $metric) {
-		try {
+			$affected_rows = 0;
+			
 			foreach($rankings as $ranking) {
 				$ranking = (array) $ranking;
 				$encounter_id = $ranking['encounter']; 
@@ -388,26 +332,89 @@ class Database {
 				$itemLevel = $ranking['itemLevel'];
 				$total = $ranking['total'];
 
-				switch($metric) {
-				case Metric::$DPS:
-					try {
-						$this->insert_dps_ranking($character, $server, $region, $encounter_id, $class, $spec, $guild, $rank, $outOf, $duration, $startTime, $reportID, $fightID, $difficulty, $size, $itemLevel, $total);
-					} catch(Exception $e) {
-					}
-					break;
-				case Metric::$HPS:
-					try {
-						$this->insert_hps_ranking($character, $server, $region, $encounter_id, $class, $spec, $guild, $rank, $outOf, $duration, $startTime, $reportID, $fightID, $difficulty, $size, $itemLevel, $total);
-					} catch(Exception $e) {
-					}
-					break;
-				case Metric::$KRSI:
-					break;
-				default:
+				if( !$stmt->bind_param("sssiiisiiiisiiiid", $character, $server, $region, $encounter_id, $class, $spec, $guild, $rank, $outOf, $duration, $startTime, $reportID, $fightID, $difficulty, $size, $itemLevel, $total) ) {
+					throw new Exception($stmt->error, $stmt->errno);
 				}
+					
+				if( !$stmt->execute() ) {
+					throw new Exception($stmt->error, $stmt->errno);
+				}
+				
+				$stmt->store_result();
+				$affected_rows += ($stmt->affected_rows > 0 ? 1 : 0);
+				$stmt->free_result();
+
 			}
-		} catch (Exception $e) {
-			throw new Exception($e->getMessage());
+			
+			mysqli_commit($this->con);
+			return $affected_rows;
+		} 
+		catch(Exception $e) {
+			mysqli_rollback($this->con);
+			throw new Exception($stmt->error, $stmt->errno);
+		}
+		finally {
+			$stmt->close();
+			mysqli_autocommit($this->con, TRUE);
+		}
+	}
+	
+	public function insert_hps_rankings($character, $server, $region, $rankings) {
+		$this->connect();
+		$stmt = $this->con->prepare("insert into hps_ranking (name, server, region, encounter_id, class, spec, guild, rank, outOf, duration, startTime, reportID, fightID, difficulty, size, itemLevel, total) values (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?) ON DUPLICATE KEY UPDATE rank=values(rank), outOf=values(outOf), total=values(total), guild=values(guild), spec=values(spec), itemLevel=values(itemLevel), size=values(size), fightID=values(fightID), reportID=values(reportID), startTime=values(startTime), duration=values(duration);");
+		
+		mysqli_autocommit($this->con, FALSE);
+		
+		if(!$stmt) {
+			throw new Exception($this->con->error, $this->con->errno);
+		}
+	
+		try {
+		
+			$affected_rows = 0;
+			
+			foreach($rankings as $ranking) {
+				$ranking = (array) $ranking;
+				$encounter_id = $ranking['encounter']; 
+				$class = $ranking['class']; 
+				$spec = $ranking['spec'];
+				$guild = $ranking['guild'];
+				$rank = $ranking['rank'];
+				$outOf = $ranking['outOf'];
+				$duration = $ranking['duration'];
+				$startTime = $ranking['startTime'];
+				$reportID = $ranking['reportID'];
+				$fightID = $ranking['fightID'];
+				$difficulty = $ranking['difficulty'];
+				$size = $ranking['size'];
+				$itemLevel = $ranking['itemLevel'];
+				$total = $ranking['total'];
+
+				if( !$stmt->bind_param("sssiiisiiiisiiiid", $character, $server, $region, $encounter_id, $class, $spec, $guild, $rank, $outOf, $duration, $startTime, $reportID, $fightID, $difficulty, $size, $itemLevel, $total) ) {
+					throw new Exception($stmt->error, $stmt->errno);
+				}
+					
+				if( !$stmt->execute() ) {
+					throw new Exception($stmt->error, $stmt->errno);
+				}
+				
+				$stmt->store_result();
+				$affected_rows += ($stmt->affected_rows > 0 ? 1 : 0);
+				$stmt->free_result();
+			
+			}
+			
+			mysqli_commit($this->con);
+			return $affected_rows;
+		
+		} 
+		catch(Exception $e) {
+			mysqli_rollback($this->con);
+			throw new Exception($stmt->error, $stmt->errno);
+		}
+		finally {
+			$stmt->close();
+			mysqli_autocommit($this->con, TRUE);
 		}
 	}
 	

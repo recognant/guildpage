@@ -9,16 +9,17 @@ $region = array_key_exists("region", $_GET) ? mb_strtolower($_GET['region'], 'UT
 $class = array_key_exists("class", $_GET) ? intval($_GET['class']) : 0;
 
 if( empty($character) || empty($server) || empty($region) || $class === 0 ) {
-	Error::INTERNAL_SERVER_ERROR("Missing or wrong parameters given!");
+	INTERNAL_SERVER_ERROR("Missing or wrong parameters given!");
 }
 
 try {
 	$db = Database::getInstance();
 	$db->insert_member($character, $server, $region, $class);
+	$db->disconnect();
 } catch (Exception $e) {
-	Error::INTERNAL_SERVER_ERROR($e->getMessage());
+	INTERNAL_SERVER_ERROR($e->getMessage());
 }
 
-Utils::SEND_OK();
+SEND_OK();
 
 ?>

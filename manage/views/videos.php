@@ -8,31 +8,35 @@
 <body>
 	
 	<div class="row">
+	
+		<div class="card">
 		
-		<form id="myform" class="form form-inline" role="form" onsubmit="__Videos.add(this); return false;">
+			<form id="myform" class="form form-inline" role="form" onsubmit="__Videos.add(this); return false;">
+			
+				<div class="pull-right">
+					<input class="form-control" name="yt" id="ytid" placeholder="Youtube-ID" required />
+					<button type="submit" id="form-submit" hidden></button>
+					<button type="button" class="btn btn-success" onclick="$('#form-submit').click();"><i class='fa fa-youtube fa-fw'></i> Neues Video</button>
+				</div>
+			
+			</form>
+				
+			<table class="table table-striped">
+				
+				<thead>
+					<th>Name</th>
+					<th>Tag</th>
+					<th>Letzte Aktualisierung</th>
+					<th></th>
+					<th></th>
+				</thead>
+				
+				<tbody id="table-videos">
+				</tbody>
+				
+			</table>
 		
-			<div class="pull-right">
-				<input class="form-control" name="yt" placeholder="Youtube-ID" required />
-				<button type="submit" id="form-submit" hidden></button>
-				<button type="button" class="btn btn-success" onclick="$('#form-submit').click();"><i class='fa fa-youtube fa-fw'></i> Neues Video</button>
-			</div>
-		
-		</form>
-			
-		<table class="table table-striped">
-			
-			<thead>
-				<th>Name</th>
-				<th>Tag</th>
-				<th>Letzte Aktualisierung</th>
-				<th></th>
-				<th></th>
-			</thead>
-			
-			<tbody id="table-videos">
-			</tbody>
-			
-		</table>
+		</div>
 	
 	</div>
 	
@@ -79,6 +83,10 @@
 				var __this = this;
 				
 				webi.loadJSON("controller/videos/index.php").done(function(data) {
+					if(data.status == 0) {
+						data = data.msg;
+					}
+					
 					__this.__videos = data.videos;
 					__this.refresh();
 				});
@@ -92,6 +100,7 @@
 					if( data.status == 0) {
 						__this.load();
 						$Toasts.success("Erfolgreich!");
+						$('#ytid').val('');
 					}
 				}).fail(function() {
 					$Toasts.alert("Fehlgeschlagen!");

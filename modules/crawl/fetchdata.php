@@ -9,23 +9,27 @@ try {
 	$api_key = $props['api_key'];
 }
 catch(Exception $e) {
-	Error::INTERNAL_SERVER_ERROR();
+	INTERNAL_SERVER_ERROR();
 }
 
-function fetch_zones($api_key="") {
+function fetch_zones() {
+	global $api_key;
 	$result = curl_get("https://www.warcraftlogs.com:443/v1/zones?api_key=" . $api_key);
 	$result = decode_data($result);
 	return $result;
 }
 
-function fetch_classes($api_key="") {
+function fetch_classes() {
+	global $api_key;
 	$result = curl_get("https://www.warcraftlogs.com:443/v1/classes?api_key=" . $api_key);
 	$result = decode_data($result);
 	return $result;
 }
 
 /* 1 = LFR, 2 = Flex, 3 = Normal, 4 = Heroic, 5 = Mythic, 10 = Challenge Mode */
-function fetch_encounter($id, $metric, $difficulty, $size=0, $region=1, $class, $spec, $bracket_id=0, $limit=5000, $page=1, $api_key="") {
+function fetch_encounter($id, $metric, $difficulty, $size=0, $region=1, $class, $spec, $bracket_id=0, $limit=5000, $page=1) {
+	global $api_key;
+	
 	$opts = array(
 		"metric" => $metric,
 		"difficulty" => $difficulty,
@@ -44,7 +48,9 @@ function fetch_encounter($id, $metric, $difficulty, $size=0, $region=1, $class, 
 	return $result;
 }
 
-function fetch_encounter_rankings($id, $metric, $difficulty, $size=0, $region="eu", $class, $spec, $bracket_id=0, $limit=5000, $api_key="") {
+function fetch_encounter_rankings($id, $metric, $difficulty, $size=0, $region="eu", $class, $spec, $bracket_id=0, $limit=5000) {
+	global $api_key;
+	
 	$parts = array();
 	$parts[] = fetch_encounter($id, $metric, $difficulty, $size, $region, $class, $spec, $bracket_id, $limit, 1, $api_key);
 	
@@ -65,7 +71,9 @@ function fetch_encounter_rankings($id, $metric, $difficulty, $size=0, $region="e
 }
 
 /* has to be done for all brackets in a raid */
-function fetch_character($name, $server, $region, $raid_id, $metric, $bracket_id=0, $limit=5000, $api_key="") {
+function fetch_character($name, $server, $region, $raid_id, $metric, $bracket_id=0, $limit=5000) {
+	global $api_key;
+	
 	$opts = array(
 		"zone" => $raid_id,
 		"metric" => $metric,

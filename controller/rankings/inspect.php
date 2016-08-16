@@ -12,7 +12,7 @@ $metric = array_key_exists("metric", $_GET) ? mb_strtolower($_GET['metric'], 'UT
 $encounter = array_key_exists("encounter", $_GET) ? (empty($_GET['encounter']) ? null : intval($_GET['encounter'])) : null;
 
 if( empty($character) || empty($server) || empty($region) || $raid === null || $encounter === null || !Metric::is_metric($metric) ) {
-	Error::INTERNAL_SERVER_ERROR("something is off...");
+	INTERNAL_SERVER_ERROR("something is off...");
 }
 
 try {
@@ -20,7 +20,7 @@ try {
 	$db = Database::getInstance();
 	
 	if(!$db->is_member($character, $server, $region)) {
-		Error::INTERNAL_SERVER_ERROR("Character not found!");
+		INTERNAL_SERVER_ERROR("Character not found!");
 	}
 	
 	$boss = $db->get_encounter($encounter);
@@ -36,11 +36,11 @@ try {
 	case Metric::$KRSI:
 		break;
 	default:
-		Error::INTERNAL_SERVER_ERROR("something is off...");
+		INTERNAL_SERVER_ERROR("something is off...");
 	}
 
 } catch (Exception $e) {
-	Error::INTERNAL_SERVER_ERROR($e->getMessage());
+	INTERNAL_SERVER_ERROR($e->getMessage());
 }
 
 $result = array(
@@ -53,6 +53,6 @@ $result = array(
 	"rankings" => $rankings
 );
 
-Utils::SEND_JSON($result);
+SEND_OK($result);
 
 ?>

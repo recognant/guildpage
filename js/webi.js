@@ -14,7 +14,7 @@ webi.content.load = function(file) {
 			$WowheadPower.refreshLinks();
 		});
 	} else {
-		webi.content.load("views/notfound.html");
+		$("#content").load("views/notfound.html");
 	}
 };
 

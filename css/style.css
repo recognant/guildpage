@@ -1,8 +1,7 @@
 body {
 	padding: 0;
 	margin: 0;
-	/*background-image: url("../img/background.jpg");
-	position: static;*/
+	background: url("http://eu.battle.net/forums/static/images/backgrounds/background-wow-top.jpg") center -200px no-repeat, url("http://eu.battle.net/forums/static/images/backgrounds/background-wow-repeat.jpg") center 1800px repeat-y #231a13;
 }
 
 .page-bg {
@@ -10,6 +9,7 @@ body {
 	border-bottom: 1px solid #000;
 	height: 401px;
 	background: url("http://eu.battle.net/forums/static/images/welcome-banners/wow-glass.jpg");
+	/*background: url("../img/wow-glass2.jpg");*/
 	background-position: 50% 0;
     background-repeat: no-repeat;
 }
@@ -36,9 +36,59 @@ body {
 }
 
 .footer {
-	padding-top: 50px;
-    width: 100%;
-    height: 60px;
+	margin-top: 50px;
+	background-color: transparent;
+    border-top: 1px solid #000;
+    color: #b1997f;
+    line-height: 1.4;
+	background: url("https://worldofwarcraft.com/static/components/Pane/Pane-dirtLight-18def74ed6.jpg") no-repeat;
+	background-size: 100% 100%;
+}
+.footer-content {
+	padding: 20px;
+}
+.footer-pane {
+	background: rgba(21, 13, 9, 0.3);
+	-webkit-box-shadow: 0 0 0 1px black;
+	-moz-box-shadow: 0 0 0 1px black;
+	box-shadow: 0 0 0 1px black;
+	border-color: rgba(255,255,255,.15);
+	padding: 5px 0;
+	text-align: center;
+	height: 50px;
+	margin-left: auto;
+	margin-right: auto;
+}
+.footer-logo {
+	display: inline;
+	margin: 5px;
+	-webkit-touch-callout: none;
+	-webkit-user-select: none;
+	-khtml-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none; 
+}
+.footer-logo a:hover, .footer-logo a:focus {
+	text-decoration: none;
+}
+.footer-logo a img {
+	width: auto;
+	height: 40px;
+	opacity: 0.7;
+	filter: alpha(opacity=70);
+}
+.footer-logo a img:hover {
+	opacity: 1;
+	filter: alpha(opacity=100);
+}
+.footer-line {
+    border-left: 1px solid black;
+    display: inline;
+	-webkit-box-shadow: 1px 0px 1px #888;
+	-moz-box-shadow: 1px 0px 1px #888;
+    box-shadow: 1px 0px 1px #888;
+	margin: 5px;
 }
 
 .navbar-brand,
@@ -57,63 +107,58 @@ body {
 	text-decoration: none;
 }
 
-.widget {
-	margin-bottom: 10px;
-	padding: 0 0 5px 5px;
-	width: 100%;
-}
-
-.widget > img {
-    margin: auto;
-	width: 100%;
-	height: auto;
-}
-
-.carousel-indicators > li {
-	width: 15px;
-	height: 15px;
-}
-
-.carousel-indicators .active {
-	width: 18px;
-	height: 18px;
-}
-
 .no-list {
 	list-style: none;
 	padding-left: 0;
 }
 
-.panel-heading {
-	padding-top: 1px;
-	padding-bottom: 5px;
-}
-.panel-inverse {
-  border-color: #080808;
-}
-.panel-inverse > .panel-heading {
-	color: #fff;
-	background-color: #222;
-	border-color: #080808;
-}
-.panel-inverse > .panel-heading + .panel-collapse > .panel-body {
-  border-top-color: #080808;
-}
-.panel-inverse > .panel-heading .badge {
-  color: #fff;
-  background-color: #222;
-}
-.panel-inverse > .panel-footer + .panel-collapse > .panel-body {
-  border-bottom-color: #080808;
+.well {
+	color: black;
 }
 
 .card {
-	box-shadow: 0 0 0 1px #000;
+	-webkit-box-shadow: 0 0 0 1px black;
+	-moz-box-shadow: 0 0 0 1px black;
+	box-shadow: 0 0 0 1px black;
 	border-color: rgba(255,255,255,.15);
     border-style: solid;
 	border-width: 1px;
 	padding: 10px;
 	color: #f8b700;
+	background: rgba(21, 13, 9, 0.3);
+}
+.card.extra-padding {
+	padding: 0 25px;
+}
+.card.header {
+	background: rgba(21, 150, 9, 0.3);
+	background: url("https://worldofwarcraft.com/static/components/Pane/Pane-dirtLight-18def74ed6.jpg") no-repeat;
+	background-size: 100% 100%;
+	height: 40px;
+	padding: 10px;
+}
+
+select.form-control {
+	border: solid 1px black;
+	-moz-border-radius: 1px;
+	-webkit-border-radius: 1px;
+	color: #f8b700;
+	background: url("https://worldofwarcraft.com/static/components/SiteNav/sitenav-bar-user-bg-a5aceeed07.jpg") repeat-x 0 0;
+	background-size: auto 100%;
+	background-color: #211510;
+}
+input.form-control {
+	border: solid 1px black;
+	-moz-border-radius: 1px;
+	-webkit-border-radius: 1px;
+	color: white;
+	background-color: #211510;
+}
+select.form-control:focus, input.form-control:focus {
+	border-color: #f8b700;
+	-webkit-box-shadow: 1px 1px 10px 0px rgba(248,183,0,1);
+	-moz-box-shadow: 1px 1px 10px 0px rgba(248,183,0,1);
+	box-shadow: 1px 1px 10px 0px rgba(248,183,0,1);
 }
 
 hr {
@@ -135,26 +180,53 @@ hr {
 	height: 100%;
 }
 
-blockquote {
-  border-left: 0;
-  quotes: "\201C""\201D""\2018""\2019";
-}
-blockquote:before {
-  color: #ccc;
-  content: open-quote;
-  font-size: 4em;
-  line-height: 0.1em;
-  margin-right: 0.25em;
-  vertical-align: -0.4em;
-}
-blockquote p {
-  display: inline;
-}
-
 .nav-tabs>li.active>a, .nav-tabs>li.active>a:hover , .nav-tabs>li.active>a:focus {
-	background-color: #337ab7;
+	background: rgba(21, 13, 9, 0.3);
 	color: #fff;
 	border-bottom: 1px solid #ddd;
+}
+
+.navbar-fel {
+	border-radius: 2px;
+	-moz-border-radius: 2px;
+	-webkit-border-radius: 2px;
+	border-color: black;
+	background: url("https://worldofwarcraft.com/static/components/SiteNav/sitenav-bar-user-bg-a5aceeed07.jpg") repeat-x 0 0;
+	background-size: auto 100%;
+	background-color: #211510;
+	margin-bottom: 5px;
+}
+.navbar-fel .navbar-nav>.active>a { 
+	/*background: url("https://worldofwarcraft.com/static/components/SiteNav/sitenav-bar-user-bg-a5aceeed07.jpg") repeat-x 0 0;*/
+	background: rgba(21, 13, 9, 0.3);
+	-webkit-box-shadow: inset 0 3px 9px rgba(0, 0, 0, 0.25) !important;
+	-moz-box-shadow: inset 0 3px 9px rgba(0, 0, 0, 0.25) !important;
+	box-shadow: inset 0 3px 9px rgba(0, 0, 0, 0.25) !important;
+}
+.navbar-fel .navbar-nav>.open>a {
+	background: none;
+}
+.navbar-fel.navbar-brand,.navbar-fel .navbar-nav>li>a {
+	text-shadow: none;
+}
+.navbar-fel .navbar-nav>li>a:focus, .navbar-fel .navbar-nav>li>a{
+	color: #f8b700;
+    background-color: transparent;
+}
+.navbar-fel.navbar-nav>li>a:focus, .navbar-fel .navbar-nav>li>a:hover {
+	color: white;
+    background-color: transparent;
+}
+.navbar-fel .navbar-nav>.active>a, .navbar-fel .navbar-nav>.active>a:focus, .navbar-fel .navbar-nav>.active>a:hover {
+    color: #ffd36b  !important;
+	background: rgba(21, 13, 9, 0.3) !important;
+}
+.navbar-fel .navbar-nav>.open>a, .navbar-fel .navbar-nav>.open>a:focus, .navbar-fel .navbar-nav>.open>a:hover {
+	color: white;
+    background-color: transparent;
+	-webkit-box-shadow: inset 0 3px 9px rgba(0, 0, 0, 0.25);
+	-moz-box-shadow: inset 0 3px 9px rgba(0, 0, 0, 0.25);
+	box-shadow: inset 0 3px 9px rgba(0, 0, 0, 0.25);
 }
 
 /* Tables */
@@ -167,8 +239,13 @@ blockquote p {
 	border-top: 1px solid #000;
 }
 
+.table>tbody>tr>td {
+	color: #fff;
+}
+
 .table>thead>tr>th {
 	border-bottom: 2px solid #000;
+	color: #f8b700;
 }
 
 .icon {
@@ -246,6 +323,11 @@ div.chart {
 
 .btn-circle {
 	border-radius: 50%;
+	border: 1px solid black;
+}
+.btn-circle:focus, .btn-circle:active:focus, .btn-circle.active:focus {
+	outline: none !important; 
+	outline-style: none; 
 }
 .btn-circle.btn-xs {
 }
@@ -263,6 +345,7 @@ div.chart {
 }
 .btn-circle.btn-warning {
 	border: 1px solid #d58512;
+	border: 1px solid black;
 }
 .btn-circle.btn-info {
 	border: 1px solid #269abc;
@@ -276,6 +359,10 @@ div.chart {
 .btn-circle.btn-primary {
 	border: 1px solid #204d74;
 }
+.btn-circle.btn-transparent {
+	border: 1px solid black;
+	background: rgba(21, 13, 9, 0.8);
+}
 
 /* Bootstrap3 Submenus */
 .dropdown-submenu {
@@ -286,9 +373,9 @@ div.chart {
     left:100%;
     margin-top:-6px;
     margin-left:-1px;
-    -webkit-border-radius:0 6px 6px 6px;
-    -moz-border-radius:0 6px 6px 6px;
-    border-radius:0 6px 6px 6px;
+    -webkit-border-radius:0 1px 1px 2px;
+    -moz-border-radius:0 1px 1px 2px;
+    border-radius:0 1px 1px 2px;
 }
 .dropdown-submenu:hover>.dropdown-menu {
     display:block;
@@ -318,6 +405,28 @@ div.chart {
     -webkit-border-radius:6px 0 6px 6px;
     -moz-border-radius:6px 0 6px 6px;
     border-radius:6px 0 6px 6px;
+}
+.dropdown-menu {
+	border: 1px solid black;
+	-webkit-border-radius: 0 1px 0 1px;
+    -moz-border-radius: 0 1px 0 1px;
+    border-radius: 0 1px 0 1px;
+	background: url("https://worldofwarcraft.com/static/components/SiteNav/sitenav-bar-user-bg-a5aceeed07.jpg") repeat-x 0 0;
+	background-size: auto 100%;
+	background-color: #211510;
+}
+.dropdown-menu > li.divider {
+	background-color: black;
+}
+.dropdown-menu > li > a {
+	color: white;
+}
+.dropdown-menu > li > a:focus, .dropdown-menu > li > a:hover {
+	background: rgba(21, 13, 9, 0.3);
+	color: #ffd36b;
+}
+.dropdown-header {
+	color: #f8b700;
 }
 .dropdown-menu > li a {
 	height: 24px;
@@ -399,6 +508,11 @@ span.collapser.selectable {
 	display: block;
 	margin: 5px 0 0;
 	padding: 0;
+	color: #f8b700;
+}
+.video-title:focus, .video-title:hover {
+	color: #ffd36b;
+	text-decoration: none;
 }
 .video-author {
 	color: #767676;
@@ -415,7 +529,7 @@ span.collapser.selectable {
 .text-ellipsis {
 	display: -webkit-box !important;
     -webkit-box-orient: vertical;
-	background-color: #fff;
+	background-color: transparent;
     line-height: 1.2em;
     overflow: hidden;
     position: relative;
@@ -450,8 +564,4 @@ span.collapser.selectable {
 }
 .close.close-overlay:focus, .close.close-overlay:hover {
     background: #ccc;
-}
-
-body {
-	background: url("http://eu.battle.net/forums/static/images/backgrounds/background-wow-top.jpg") center -200px no-repeat, url("http://eu.battle.net/forums/static/images/backgrounds/background-wow-repeat.jpg") center 1800px repeat-y #231a13;
 }

@@ -17,7 +17,7 @@ $bracket = array_key_exists("bracket", $_GET) ? (empty($_GET['bracket']) ? 0 : i
 $difficulty = array_key_exists("difficulty", $_GET) ? (empty($_GET['difficulty']) ? 0 : intval($_GET['difficulty'])) : 0;
 
 if( empty($character) || empty($server) || empty($region) || $encounter === null || $class === null || $spec === null ) {
-	Error::INTERNAL_SERVER_ERROR();
+	INTERNAL_SERVER_ERROR();
 }
 
 global $api_key;
@@ -25,7 +25,7 @@ try {
 		$db = Database::getInstance();
 
 		if(!$db->is_member($character, $server, $region)) {
-			Error::INTERNAL_SERVER_ERROR("Character not found!");
+			INTERNAL_SERVER_ERROR("Character not found!");
 		}
 		
 		$metric = $db->get_metric($class, $spec);
@@ -63,11 +63,11 @@ try {
 			//"rankings" => $data
 		);
 		
-		Utils::SEND_JSON($result);
+		SEND_OK($result);
 		
 } catch (Exception $e) {
 	// something bad happened
-	Error::INTERNAL_SERVER_ERROR($e->getMessage());
+	INTERNAL_SERVER_ERROR($e->getMessage());
 }
 
 function lloyd($data=array(), $character, $server) {

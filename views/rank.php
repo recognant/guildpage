@@ -28,7 +28,7 @@ try {
 	
 	?>
 	
-	<h2 style="color: #fff;"><i class="fa fa-line-chart fa-fw"></i>Rankings</h2>
+	<!--h2 style="color: #fff;"><i class="fa fa-line-chart fa-fw"></i>Rankings</h2-->
 	
 	<div class="card">
 		
@@ -40,20 +40,16 @@ try {
 			<p><b>Achtung!</b> Die Färbung ist für Tanks getauscht!</p>
 		</div>
 		
-		<form id="myform" class="form-inline" role="form" onsubmit="searchRank(this); return false;">
-		
+		<form id="myform" class="form-inline center" style="margin-bottom: 10px;" role="form" onsubmit="searchRank(this); return false;">
+			
 			<div class="form-group">
-				
+			
 				<select id="member" class="form-control">
 					<?php foreach($members as $member) {
 						echo "<option value='" . $member['name'] . "' server='" . $member['server'] . "' region='" . $member['region'] . "'>" . mb_strtoupper(mb_substr($member['name'], 0, 1), 'UTF-8').mb_substr($member['name'], 1) . "</option>";
 					}
 					?>
 				</select>
-				
-			</div>
-			
-			<div class="form-group">
 			
 				<select id="spec" class="form-control">
 					<?php foreach($specs as $spec) {
@@ -82,7 +78,7 @@ try {
 					<option value="5">Mythic</option>
 				</select>
 				
-				<button type="button" class="btn btn-primary" onclick="$('#myform').submit();"><i class="fa fa-search"></i> Rank Me!</button>
+				<button type="button" class="btn btn-warning" onclick="$('#myform').submit();"><i class="fa fa-search"></i> Rank Me!</button>
 				
 			</div>
 		
@@ -145,6 +141,14 @@ try {
 			bracket: bracket,
 			difficulty: difficulty,
 		}).done(function(data) {
+		
+			if( data.status == 1) {
+				$('#highcharts').html('<div class="alert alert-danger" style="margin-top: 20px;"><i class="fa fa-exclamation"></i><b>Fehler!</b> Leider ging etwas schief! Versuchen Sie es erneut.</div>');
+			}
+			
+			if( data.status == 0) {
+				data = data.msg;
+			}
 			
 			if( data.total > 0) {
 				var __lloyd = data.lloyd;

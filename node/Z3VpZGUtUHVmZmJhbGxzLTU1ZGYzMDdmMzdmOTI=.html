@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<head>
+  <title></title>
+</head>
+<body>
+  <div class="page-header">
+    <h1><i class="fa fa-fw fa-globe"/>Warcraftlogs-Basics <font class="gs-text-x-small">von Rabauzel</font></h1>
+  </div>
+  <div class="well">
+    <ul>
+      <li><a href="https://www.warcraftlogs.com" target="_blank">Warcraftlogs</a> sollte nicht mit <a href="http://www.worldoflogs.com" target="_blank">Worldoflogs</a> verwechselt werden, da diese Seite ziemlich outdated ist.</li>
+      <li>Wem <a href="https://www.warcraftlogs.com" target="_blank">Warcraftlogs</a> zu komplex/aufwändig ist, der kann bei Raidscore eine stark abgespeckte Version einsehen.<br/>Hier werden alle Daten aus <a href="https://www.warcraftlogs.com" target="_blank">Warcraftlogs</a> automatisch ausgelesen und zu einem „Rating“ von 1-100 zusammengefasst (1 am schlechtesten/ 100 am besten).<br/>Allerdings muss eine Mindest-Menge an hochgeladenen Logs für den jeweiligen Charakter bei <a href="https://www.warcraftlogs.com" target="_blank">Warcraftlogs</a> existieren, damit das Tool richtig funktioniert.<br/>Desweiteren hat das Tool noch einige Fehler.</li>
+      <li>Im folgenden wird nur auf wesentliche Funktionen eingegangen, <a href="https://www.warcraftlogs.com" target="_blank">Warcraftlogs</a> bietet jedoch darüber hinaus noch wesentlich mehr „Diagnose-Möglichkeiten“.</li>
+    </ul>
+  </div>
+  <h2 class="gs-chapter">1. Rankings</h2>
+  <ul>
+    <li><font class="gs-text-bold">Rank %</font> : Am besten mit einem Beispiel erklärt. Wenn in dieser Spalte neben dem Charakter-Namen eine 60 steht (60%), heißt das, man gehört zu den besten 40% der Spieler oder anders ausgedrückt, man ist besser als 60% aller Spieler.<br/><i class="fa fa-fw fa-arrow-right"/> Je näher die Zahl an 99% ist, desto besser.<div class="alert alert-danger" role="alert"><i class="fa fa-exclamation-triangle fa-lg fa-fw"/><font class="gs-text-bold">Achtung.</font> Hier wird das Itemlvl/Gearscore <font class="gs-text-bold">NICHT</font> berücksichtigt! Daher hat diese Zahl im Prinzip keine Aussagekraft!</div></li>
+    <li><font class="gs-text-bold">Bracket %</font>: Letztendlich die Zahl, um die sich alles dreht. Vom Prinzip wie Rank %, aber hier wird das <font class="gs-text-italic">Itemlvl/Gearscore</font> berücksichtigt! Wenn man sich zum Beispiel im <font class="gs-text-italic">Bracket: 658-664 Itemlvl</font> befindet und in dieser Spalte neben dem Charakter-Namen eine 60 (<font class="gs-text-italic">60%</font>) steht, heißt das, man gehört zu den besten <font class="gs-text-bold">40%</font> der Spieler die ein Itemlvl zwischen 658-664 haben.<br/><i class="fa fa-fw fa-arrow-right"/> Je näher die Zahl an 99% ist, desto besser.</li>
+  </ul>
+  <h2 class="gs-chapter">2. Wichtige Abkürzungen</h2>
+  <ul>
+    <li> <font class="gs-text-bold">KRSI</font> = Kihra's <a href="http://www.wowhead.com/spell=158298/resolve" target="_blank">Resolve</a>-weighted Survivability Index = „Kihra's nach <a href="http://de.wowhead.com/spell=158298/entschlossenheit" target="_blank">Entschlossenheit</a> gewichteter Überlebens-Index“: Ein Maß dafür, wie gut ein Tank mit seiner aktiven Schadensvermeidung und seiner <a href="http://de.wowhead.com/spell=158298/entschlossenheit" target="_blank">Entschlossenheit</a> umgehen kann. <font class="gs-text-italic">[Je niedriger, desto besser]</font></li>
+    <li><font class="gs-text-bold">DPS(a)</font> = Damage per Second average = Durchschnittlicher verursachter Schaden pro Sekunde im Verhältnis zur Kampfdauer <font class="gs-text-italic">[Je höher, desto besser]</font></li>
+    <li><font class="gs-text-bold">DPS(e)</font> = Damage per Second end of fight = Verursachter Schaden pro Sekunde bei Kampfende <font class="gs-text-italic">[Je höher, desto besser]</font></li>
+    <li><font class="gs-text-bold">HPS(a)</font> = Heal per Second average = Durchschnittliche hervorgerufene Heilung pro Sekunde im Verhältnis zur Kampfdauer <font class="gs-text-italic">[Je höher, desto besser]</font></li>
+    <li><font class="gs-text-bold">HPS(e)</font> = Heal per Second end of fight = Hervorgerufene Heilung pro Sekunde bei Kampfende <font class="gs-text-italic">[Je höher, desto besser]</font></li>
+    <li><font class="gs-text-bold">Overheal</font> = Überheilung: Heilung, die ins Leere geht, weil das Ziel bereits 100% HP hat oder von einem Absorbtionseffekt betroffen ist <font class="gs-text-italic">[Je niedriger, desto besser]</font></li>
+    <li><font class="gs-text-bold">DTPS(a)</font> = Damage taken per Second average = Durchschnittlicher erlittener Schaden im Verhältnis zur Kampfdauer <font class="gs-text-italic">[Je niedriger, desto besser]</font></li>
+    <li><font class="gs-text-bold">DTPS(e)</font> = Damage taken per Second end of fight = Durchschnittlicher erlittener Schaden bei Kampfende <font class="gs-text-italic">[Je niedriger, desto besser]</font></li>
+    <li><font class="gs-text-bold">Active/Activity</font> = Aktiv/Aktivität: Man ist aktiv, wenn man ein Ziel angreift/heilt, Schaden erleidet, oder Fähigkeiten benutzt <font class="gs-text-italic">[Je höher, desto besser]</font></li>
+  </ul>
+  <h2 class="gs-chapter">3. Wie Rufe ich meine Logs auf?</h2>
+  <h3 class="gs-chapter gs-subchapter">3.1 Persönliche Logs:</h3>
+  <ul>
+    <li><a href="https://www.warcraftlogs.com" target="_blank">Warcraftlogs</a> aufrufen.</li>
+    <li>Den Namen seines Charakters oben in das Suchfeld eingeben.</li>
+    <li>Nun öffnet sich eine Übersichtsseite, auf der man sich alle Logs des jeweiligen Charakters anschauen kann, die jemals von irgendeinem Uploader auf <a href="https://www.warcraftlogs.com" target="_blank">Warcraftlogs</a> hochgeladen wurden.</li>
+    <li>Über die Reiter oben kann man die jeweilige Instanz, Boss und Schwierigkeitsgrad sowie die Spezialisierung auswählen und bekommt alle Logs angezeigt, die über den eigenen Charakter für den gewählten Encounter existieren.</li>
+    <li>Durch Klick auf das einen Kalendereintrag öffnet sich die Übersichtsseite.</li>
+    <li>In die persönlichen Logs werden auch automatisch alle Gildenlogs mit aufgenommen, sofern der eigene Charakter dort auftaucht.</li>
+  </ul>
+  <div class="jumbotron gs-important">
+    <div class="embed-responsive embed-responsive-16by9 center-block gs-video-width">
+      <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/l6dYngalUVs?rel=0" alt="https://www.youtube.com/watch?v=l6dYngalUVs" allowfullscreen="allowfullscreen"/>
+    </div>
+  </div>
+  <h3 class="gs-chapter gs-subchapter">3.2 Gildenlogs:</h3>
+  <ul>
+    <li><a href="https://www.warcraftlogs.com" target="_blank">Warcraftlogs</a> aufrufen.</li>
+    <li>Den Namen seiner Gilde oben in das Suchfeld eingeben.</li>
+    <li>Nun öffnet sich der Gildenkalender in dem alle Logs, die in das Gildenprofil hochgeladen wurden, unter dem jeweiligen Datum zu finden sind.</li>
+    <li>Mit den kleinen Pfeilen oben kann der jeweilige Monat eingestellt werden.</li>
+    <li>Durch Klick auf den einen Kalendereintrag öffnet sich die Übersichtsseite.</li>
+    <li>Hier sind alle Logs der jeweiligen Raid-ID nach Bossen sortiert.</li>
+  </ul>
+  <div class="jumbotron gs-important">
+    <div class="embed-responsive embed-responsive-16by9 center-block gs-video-width">
+      <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/3IO4AL9JrsE?rel=0" alt="https://www.youtube.com/watch?v=3IO4AL9JrsE" allowfullscreen="allowfullscreen"/>
+    </div>
+  </div>
+  <h3 class="gs-chapter gs-subchapter">3.3 Wie kann ich mich mit anderen vergleichen?</h3>
+  <font class="gs-text-italic">Das geht am besten über die "Compare"-Funktion von </font>
+  <a href="https://www.warcraftlogs.com" target="_blank">
+    <font class="gs-text-italic">Warcraftlogs</font>
+  </a>
+  <font class="gs-text-italic">, die in folgendem Tutorial vorgestellt wird.</font>
+  <div class="jumbotron gs-important">
+    <div class="embed-responsive embed-responsive-16by9 center-block gs-video-width">
+      <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/b9Datm_h5ZI?rel=0" alt="https://www.youtube.com/watch?v=b9Datm_h5ZI" allowfullscreen="allowfullscreen"/>
+    </div>
+  </div>
+</body>

@@ -12,7 +12,7 @@
 
 <div class="row">
 
-	<h2 style="color: #fff;"><i class="fa fa-users fa-fw"></i>Mitglieder</h2>
+	<!--h2 style="color: #fff;"><i class="fa fa-users fa-fw"></i>Mitglieder</h2-->
 
 	<div class="card">
 

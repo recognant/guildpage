@@ -9,7 +9,7 @@ $region = array_key_exists("region", $_GET) ? mb_strtolower($_GET['region'], 'UT
 $metric = array_key_exists("metric", $_GET) ? ( !empty($_GET['metric']) ? mb_strtolower($_GET['metric'], 'UTF-8') : Metric::$DPS ) : Metric::$DPS;
 
 if( empty($character) || empty($server) || empty($region) || !Metric::is_metric($metric) ) {
-	Error::INTERNAL_SERVER_ERROR("Missing or wrong parameters given!");
+	INTERNAL_SERVER_ERROR("Missing or wrong parameters given!");
 }
 
 ?>
@@ -25,7 +25,7 @@ if( empty($character) || empty($server) || empty($region) || !Metric::is_metric(
 
 <div class="row">
 
-	<h2 style="color: #fff;"><i class="fa fa-users fa-fw fa-text-icon"></i>Profil</h2>
+	<!--h2 style="color: #fff;"><i class="fa fa-users fa-fw fa-text-icon"></i>Profil</h2-->
 
 	<div class="card">
 
@@ -41,7 +41,7 @@ if( empty($character) || empty($server) || empty($region) || !Metric::is_metric(
 $db = Database::getInstance();
 
 if(!$db->is_member($character, $server, $region)) {
-	Error::INTERNAL_SERVER_ERROR("Character not found!");
+	INTERNAL_SERVER_ERROR("Character not found!");
 }
 
 try {
@@ -59,7 +59,7 @@ try {
 		$progress = array();
 		break;
 	default:
-		Error::INTERNAL_SERVER_ERROR("Missing or wrong parameters given!");
+		INTERNAL_SERVER_ERROR("Missing or wrong parameters given!");
 	}
 	
 	$raids = array();
@@ -78,7 +78,7 @@ try {
 	$class = is_null($info) ? "" : $info['class'];
 	
 } catch (Exception $e) {
-	Error::INTERNAL_SERVER_ERROR($e->getMessage());
+	INTERNAL_SERVER_ERROR($e->getMessage());
 }
 
 ?>
@@ -183,8 +183,8 @@ try {
 		
 	function changeMetric(selector) {
 		var metric = $(selector).val();
-		var url = "<?php echo "http://$_SERVER[HTTP_HOST]/#profile@$region/$server/$character/"; ?>" + metric;
-		window.location = url;
+		var hash = "<?php echo "#profile@$region/$server/$character/"; ?>" + metric;
+		window.location.hash = hash;
 	}
 	
 </script>

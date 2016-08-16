@@ -78,11 +78,12 @@ class Parser {
 			$element = $this->doc->createElement($tokenType);
 			$element->setAttribute("raw", $token->text);
 			$root->appendChild($element);
-			array_map(function($key, $value) {
+			
+			foreach($token->variables as $key=>$value) {
 				if( $key === "value") {
 					$element->setAttribute("value", $value);
 				}
-			}, array_keys($token->variables), $token->variables);
+			}
 			break;
 			
 		case "*":

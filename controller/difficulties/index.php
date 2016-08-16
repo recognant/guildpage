@@ -12,6 +12,6 @@ $result = array(
 	"difficulties" => $difficulties
 );
 
-Utils::SEND_JSON($result);
+SEND_OK($result);
 
 ?>

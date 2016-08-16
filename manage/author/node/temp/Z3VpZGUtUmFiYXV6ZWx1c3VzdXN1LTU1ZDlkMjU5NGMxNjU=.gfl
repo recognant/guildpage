@@ -1,0 +1,93 @@
+[title]Simcraft-Basics [size=x-small]von Rabauzel[/size][/title]
+[size=x-large]Warum sollte ich Simcraft nutzen ?[/size]
+[br][br]
+Für DDs ist Simcraft das beste - und einzig notwendige - Werkzeug um alles aus dem Char rauszuholen.
+[br][br]
+[size=x-large]Was kann Simcraft ?[/size]
+[br][br]
+[list]
+[*]Die bestmögliche DPS des eigenen Charakters gegen eine beliebige Anzahl an Ziele, über einen beliebig langen Zeitraum berechnen. Und zwar viel genauer als z.B. Ask-Mr.-Robot und ähnlicher Schrott.
+[*]Eine extrem detaillierte Prioritäten-Liste für den eigenen Charakter ausgeben, in der genau drinsteht, welche Schadens-Fähigkeit wann genutzt wird, also quasi die optimale DPS-Rotation. Und das viel genauer als alle Klassen-Guides.
+[*]Einen Kompletten Kampf in Form einer sogenannten „Sample-Sequence“ ausgeben. Das muss man sich so vorstellen: Ein Bot, der meine Klasse/Specc perfekt spielen kann und nie einen Fehler macht, stellt sich an eine Bosspuppe und macht eine zuvor eingestellte Zeitdauer lang Schaden. Ich bekomme den kompletten Kampf, inclusive aller Fähigkeiten und CDs, die der Bot in jedem einzelnen GCD (Global-Cooldown) genutzt hat, mit exakten Zeitangaben als Liste ausgegeben. Dies beinhaltet auch Pull-Phase und Execute-Phase (falls vorhanden). Ich kann mir genau anschauen, was der Bot wann gemacht hat und was nicht.
+[*]Die sogenannten „Stat-Weights“ ausrechnen: Anhand der eigenen Ausrüstung und deren Werte berechnet Simcraft, welcher Stat für den eigenen Charakter aktuell den meisten DPS-Gewinn bringt. Auch dies viel genauer als Ask-Mr.-Robot, Noxxic und ähnliche Käse-Seiten.
+[/list]
+[br][br]
+[size=x-large]Wie benutze ich Simcraft ?[/size]
+[br][br]
+[b]Installation:[/b]
+[br][br]
+[list,type=numeric]
+[*][url=http://www.simulationcraft.org/download.html]Das Programm findet ihr hier[/url]
+[*]Die zum Betriebssystem passende Version downloaden
+[*]Installieren + Starten
+[*]Man befindet sich nun auf einer Art „Startseite“ mit diversen Tabs am oberen Rand
+[/list]
+[br][br]
+[b]Den eigenen Charakter importieren:[/b]
+[br][br]
+[list=numeric]
+[*]„Optionen“
+[*]„Global“
+[*]„Bnet-Region“ auf „EU“ umstellen
+[*]„Importieren“
+[*]„Battle.net“
+[*]Man befindet sich nun auf der Startseite vom Arsenal
+[*]Den eigenen Charakter über die Arsenal-Suchfunktion heraussuchen
+[*]Unten rechts auf den „Importieren“-Button klicken
+[/list]
+[br][br]
+[b]Den eigenen Charakter simulieren:[/b]
+[br][br]
+Nachdem der eigene Charakter importiert wurde öffnet sich automatisch eine Übersichtsseite auf der in Textform alle Infos über den Charakter aufgelistet sind.
+Diese Seite wirkt auf Anhieb etwas unübersichtlich, ist aber zunächst auch nicht weiter relevant.
+[br][br]
+Anschließend geht es zurück zu „Optionen“.
+[br][br]
+[important][b]Übersicht der wichtigsten Einstellungen:[/b]
+[br][br]
+[list]
+[*][b]„Version“[/b]: Life oder PTR (Public-Test-Realm).
+[*][b]„Sollfehler“[/b]: Toleranz, die in die Ergebnisse eingebaut wird, sollte immer auf „N/A“ stehen.
+[*][b]„Iterationen“[/b]: Anzahl der simulierten Kämpfe. Je mehr Kämpfe simuliert werden, desto genauer/exakter sind die Endergebnisse der Simulation.
+[*][b]„Kampflänge“[/b]: Die Dauer des simulierten Kampfes.
+[*][b]„Vary Legth %“[/b]: => Toleranz, am besten mit einem Beispiel erklärt: Angenommen man hat bei „Kampflänge“: 200s eingestellt und stellt bei „Vary Length %“: 20% ein, variiert der simulierte Kampf zwischen 160s und 240s.
+[*][b]„Kampfart“[/b]:
+[list,type=numeric]
+[*][b]„Patchwork“[/b]: [i]Teufelslord Zakuun[/i]
+[*][b]„HecticAddCleave“[/b]: [i]Höllenfeuerangriff[/i], [i]Xul'horac[/i]
+[*][b]„HelterSkelter“[/b]: [i]Eiserner Häscher[/i], [i]Tyrannin Velhari[/i], [i]Hoher Rat des Höllenfeuers[/i]
+[*][b]„Ultraxion“[/b]: [i]Ultraxion[/i] (surprise, surprise)
+[*][b]„Wenig laufen“[/b]: [i]Killrog[/i], [i]Blutschatten[/i], [i]Kormrok[/i], [i]Socrethar[/i]
+[*][b]„Viel laufen“[/b]: [i]Mannoroth[/i], [i]Archimonde[/i]
+[*][b]„Beastlord“[/b]: [i]Abrichter Darmac[/i], [i]Schattenlord Iskar[/i]
+[/list]
+[br]
+[i][alert=info]Anmerkung: Die Profile entsprechen nicht exakt diesen Bossen, sind jedoch gute Richtlinien![/alert][/i]
+[*][b]„Herausforderungsmodus“[/b]: Man wird auf das derzeitige Item-Level im Challenge-Mode herunterskaliert.
+[*][b]„Spielerkönnen“[/b]:
+[list=numeric]
+[*][b]„Elite“[/b]: Der Bot spielt perfekt.
+[*][b]„Good“[/b]: Der Bot macht kleinere Fehler.
+[*][b]„Average“[/b]: Der Bot macht gravierende Fehler.
+[*][b]„Ouch! Fire is hot!“[/b]: Der Bot macht alles falsch, was man falsch machen kann.
+[/list]
+[*][b]„Vorgegebene Rolle“[/b]: Macht manchmal Sinn auszuwählen, sollte aber in der Regel auf AUTO gestellt sein.
+[*][b]"Anzahl der Feinde"[/b]: Anzahl der Ziele. Möchte man beispielsweise einen "Rats-Boss" simmen, muss die Anzahl der Ziele natürlich entsprechend angepasst werden.
+[*][b]"Stufe des Ziels"[/b]:
+[list]
+[*][b]"Raid-Boss"[/b]: max.lvl+3
+[*][b]"5-Man-Heroic"[/b]: max.lvl+2
+[*][b]"5-Man-Normal"[/b]: max.lvl+1
+[*][b]"Max-Player-Level"[/b]: max.lvl
+[/list]
+[/list][/important]
+[br]
+Nachdem die entsprechenden Einstellungen getätigt sind gehen wir auf:
+„Simulieren“.
+[br][br]
+Entsprechenden Charakter über die Tabs in der zweiten Reihe auswählen und unten rechts auf den „Simulieren“-Button klicken.
+[br][br]
+Zum besseren Verständnis hier nochmal ein kleiner Video-Guide:
+[br][br]
+[video=https://www.youtube.com/watch?v=smhEQJifv9Y]Simcraft-Einführung[/video]
+[br][br]

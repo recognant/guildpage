@@ -9,26 +9,30 @@
 	
 	<div class="row">
 	
-		<div class="btn-group pull-right">
-			<button type="button" class="btn btn-success" onclick="__Members.openAddDialog();"><i class='fa fa-user-plus fa-fw'></i> Neues Mitglied</button>
-			<button type="button" class="btn btn-primary" onclick="reloadAll();"><i class='fa fa-refresh fa-fw'></i> Alle Aktualisieren</button>
+			<div class="card">
+		
+			<div class="btn-group pull-right">
+				<button type="button" class="btn btn-success" onclick="__Members.openAddDialog();"><i class='fa fa-user-plus fa-fw'></i> Neues Mitglied</button>
+				<button type="button" class="btn btn-primary" onclick="reloadAll();"><i class='fa fa-refresh fa-fw'></i> Alle Aktualisieren</button>
+			</div>
+				
+			<table class="table table-striped">
+				
+				<thead>
+					<th>Name</th>
+					<th>Server</th>
+					<th></th>
+					<th></th>
+					<th></th>
+				</thead>
+				
+				<tbody id="table-members">
+				</tbody>
+				
+			</table>
+		
 		</div>
-			
-		<table class="table table-striped">
-			
-			<thead>
-				<th>Name</th>
-				<th>Server</th>
-				<th></th>
-				<th></th>
-				<th></th>
-			</thead>
-			
-			<tbody id="table-members">
-			</tbody>
-			
-		</table>
-	
+		
 		<div id="modal"></div>
 	
 	</div>
@@ -95,6 +99,9 @@
 				var __this = this;
 				
 				webi.loadJSON("../controller/members/index.php").done(function(data) {
+					if(data.status == 0) {
+						data = data.msg;
+					}
 					__this.__members = data.members;
 					__this.refresh();
 				});
@@ -156,6 +163,10 @@
 		$(document).ready(function() {
 
 			webi.loadJSON("../controller/zones/index.php").done(function(data) {
+				if(data.status == 0) {
+					data = data.msg;
+				}
+				
 				var id = 0;
 			
 				if(data.total > 0) {

@@ -6,7 +6,7 @@ include_once(dirname(__FILE__) . "/../../modules/database/database.php");
 include_once(dirname(__FILE__) . "/../../modules/crawl/fetchdata.php");
 include_once(dirname(__FILE__) . "/../../modules/utils.php");
 
-Error::INTERNAL_SERVER_ERROR();
+INTERNAL_SERVER_ERROR();
 
 $character = array_key_exists("character", $_GET) ? $_GET['character'] : "";
 $server = array_key_exists("server", $_GET) ? $_GET['server'] : "";
@@ -16,7 +16,7 @@ $type = array_key_exists("type", $_GET) ? (empty($_GET['type']) ? "" : $_GET['ty
 $encounter = array_key_exists("encounter", $_GET) ? (empty($_GET['encounter']) ? null : intval($_GET['encounter'])) : null;
 
 if( empty($character) || empty($server) || empty($region) || $raid === null || $encounter === null || !in_array($type, array("dps", "hps")) ) {
-	Error::INTERNAL_SERVER_ERROR();
+	INTERNAL_SERVER_ERROR();
 }
 
 global $api_key;
@@ -30,7 +30,7 @@ try {
 		
 } catch (Exception $e) {
 	// something bad happened
-	Error::INTERNAL_SERVER_ERROR($e->getMessage());
+	INTERNAL_SERVER_ERROR($e->getMessage());
 }
 
 ?>

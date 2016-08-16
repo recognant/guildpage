@@ -8,17 +8,18 @@ $server = array_key_exists("server", $_GET) ? mb_strtolower($_GET['server'], 'UT
 $region = array_key_exists("region", $_GET) ? mb_strtolower($_GET['region'], 'UTF-8') : "";
 
 if( empty($character) || empty($server) || empty($region) ) {
-	Error::INTERNAL_SERVER_ERROR("something is off...");
+	INTERNAL_SERVER_ERROR("something is off...");
 }
 
 try {
 	$db = Database::getInstance();
 	$db->delete_rankings($character, $server, $region);
+	$db->disconnect();
 	
-	Utils::SEND_OK();
+	SEND_OK();
 
 } catch (Exception $e) {
-	Error::INTERNAL_SERVER_ERROR($e->getMessage());
+	INTERNAL_SERVER_ERROR($e->getMessage());
 }
 
 ?>

@@ -12,47 +12,40 @@ include_once(dirname(__FILE__) . "/../modules/utils.php");
 
 $db = Database::getInstance();
 $videos = $db->get_videos(false);
+$db->disconnect();
 
 ?>
 
 <div class="row">
-	
-	<div class="panel panel-inverse">
-		<div class="panel-heading">
-			<h2><i class="fa fa-youtube-square fa-fw"></i>Videos</h2>
-		</div>
+
+	<div class="card">
 		
-		<div class="panel-body">
+		<div class="container-fluid">
 			
-			<div class="container-fluid">
-				
-				<div class="row">
-				<?php
-				foreach($videos as $video) {
-					$tn=$video['thumbnail'];
-					$title=$video['title'];
-					$author=$video['author'];
-					$owner=$video['owner'];
-				?>
-					<div class="col-xs-3">
-						<div class="video-wrapper">
-							<img style="cursor: pointer;" onclick="showmodal('<?php echo $video['ytid']; ?>', '<?php echo $title; ?>');" src="<?php echo $tn; ?>" class="img-responsive video-thumbnail">
-							<a style="cursor: pointer;" onclick="showmodal('<?php echo $video['ytid']; ?>', '<?php echo $title; ?>');" title="<?php echo $title; ?>" class="video-title text-ellipsis text-ellipsis-2"><?php echo $title; ?></a>
-							<p class="video-author">von <a tab-index="-1" target="_blank" href="<?php echo $owner; ?>" title="<?php echo $author; ?>"><?php echo $author; ?></a></p>
-						</div>
+			<div class="row">
+			<?php
+			foreach($videos as $video) {
+				$tn=$video['thumbnail'];
+				$title=$video['title'];
+				$author=$video['author'];
+				$owner=$video['owner'];
+			?>
+				<div class="col-xs-3">
+					<div class="video-wrapper">
+						<img style="cursor: pointer;" onclick="showmodal('<?php echo $video['ytid']; ?>', '<?php echo $title; ?>');" src="<?php echo $tn; ?>" class="img-responsive video-thumbnail">
+						<a style="cursor: pointer;" onclick="showmodal('<?php echo $video['ytid']; ?>', '<?php echo $title; ?>');" title="<?php echo $title; ?>" class="video-title text-ellipsis text-ellipsis-2"><?php echo $title; ?></a>
+						<p class="video-author">von <a tab-index="-1" target="_blank" href="<?php echo $owner; ?>" title="<?php echo $author; ?>"><?php echo $author; ?></a></p>
 					</div>
-				<?php
-				}
-				?>
 				</div>
-			
+			<?php
+			}
+			?>
 			</div>
 		
-		</div>  
-
+		</div>
+	
 	</div>
-
-
+	
 	<div class="modal fade" id="yt-modal" tabindex="-1" role="dialog">
 
 		<div class="modal-dialog modal-lg">

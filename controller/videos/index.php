@@ -8,14 +8,15 @@ $pending = array_key_exists("pending", $_GET) ? ( isset($_GET['pending']) ? bool
 try {
 	$db = Database::getInstance();
 	$videos = $db->get_videos($pending);
-
+	$db->disconnect();
+	
 	$result = array(
 		"total" => sizeof($videos),
 		"videos" => $videos
 	);
 	
-	Utils::SEND_JSON($result);
+	SEND_OK($result);
 } catch (Exception $e) {
-	Error::INTERNAL_SERVER_ERROR($e->getMessage());
+	INTERNAL_SERVER_ERROR($e->getMessage());
 }
 ?>

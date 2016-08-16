@@ -53,6 +53,7 @@ function onhashchange() {
 			if( ref !== null ) {
 				ref = ref[0].replace(/^\@/i, "");
 				ref = ref.replace(/.*\//i, "");
+				$("#nav-guides").addClass("active");
 				webi.content.load("views/guides.php?tag=" + encodeURIComponent(ref));
 			}
 			break;

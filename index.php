@@ -41,7 +41,7 @@
     <div class="container" style="margin-top: -60px;">
 
 		<div class="row">
-			<nav id="sticky-nav" class="navbar navbar-inverse navbar-default">
+			<nav id="sticky-nav" class="navbar navbar-fel navbar-default">
 				<div class="container-fluid" style="padding: 0;">
 				
 					<div class="navbar-header">
@@ -51,7 +51,7 @@
 							<span class="icon-bar"></span>
 							<span class="icon-bar"></span>
 						</button>
-						<a class="navbar-brand visible-xs-block" href="#"><i class="fa fa-tree"></i>Seelenwanderer</a>
+						<a class="navbar-brand visible-xs-block" href="#"><i class="fa fa-tree"></i>Natas</a>
 					</div>
 					
 					<div id="navbar" class="collapse navbar-collapse">
@@ -63,7 +63,7 @@
 							<!--li id="nav-apply"><a href="#apply"><i class="fa fa-pencil fa-fw fa-lg fa-text-icon"></i>Bewerben</a></li-->
 							<li id="nav-members"><a href="#members"><i class="fa fa-users fa-fw fa-lg fa-text-icon"></i>Mitglieder</a></li>
 							<!--li><a href="http://seelenwanderer.forumprofi.de/index.php" target="_blank"><i class="fa fa-comments fa-fw fa-lg fa-text-icon"></i>Forum</a></li-->
-							<li class="dropdown">
+							<li id="nav-guides" class="dropdown">
 								<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="fa fa-compass fa-fw fa-lg fa-text-icon"></i>Guides <span class="caret"></span></a>
 								<ul class="dropdown-menu">
 									<li class="dropdown-header">Allgemeines</li>
@@ -76,14 +76,11 @@
 										
 										if( $guides ) {
 											foreach($guides as $guide) {
-												echo '<li><a href="#node@' . $guide['tag'] . '">' . $guide['name'] . (strtotime($guide['update_date']) + 259200 > getdate()[0] ? ' <i class="fa fa-star" style="color: #f00;"> NEW</i>' : '') . '</a></li>';
+												echo '<li><a href="#node@' . $guide['tag'] . '">' . $guide['name'] . (strtotime($guide['creation_date']) + 259200 > getdate()[0] ? ' <i class="fa fa-star" style="color: #f00;"> NEW</i>' : '') . '</a></li>';
 											}
 										}
 									?>
-									<!--
-									<li><a href="#node@temp_1440275131">WarcraftLogs</a></li>
-									<li><a href="#node@temp_1440364442">Rankings <i class="fa fa-star" style="color: #f00;"> NEW</i></a></li>
-									<li><a href="#node@temp_1440188401">Simcraft <i class="fa fa-star" style="color: #f00;"> NEW</i></a></li>
+									<!---->
 									<li role="separator" class="divider"></li>
 									<li class="dropdown-header">Bosse</li>
 									<li class="dropdown-submenu"><a href="#" tabindex="-1">Schwarzfelsgießerei</a>
@@ -123,7 +120,7 @@
 											</li>
 										</ul>
 									</li>
-									-->
+									<!---->
 								</ul>
 							</li>
 							<li id="nav-statistics"><a href="#statistics"><i class="fa fa-area-chart fa-lg fa-fw fa-text-icon"></i>Statistiken</a></li>
@@ -158,29 +155,36 @@
 	</div><!-- /.modal -->
 	
 	<footer class="footer">
-		<div class="container bg-default">
-			<div class="row">
-				<div class="col-xs-6">
-					<p class="text-muted"><strong>Natas:</strong></p>
-				</div>
-				<div class="col-xs-6">
-					<p class="text-muted"><strong>Links:</strong></p>
-				</div>
+	
+		<div class="footer-pane">
+			<div class="footer-logo">
+				Links:
 			</div>
-			<hr style="margin-top: 5px; margin-bottom: 5px;"/>
-			<div class="row">
-				<div class="col-xs-6">
-					<p><a href="mailto:" title="Email-Kontakt" class="text-muted"><i class="fa fa-envelope fa-fw fa-text-icon no-underline"></i>Email-Kontakt</a></p>
-				</div>
-				<div class="col-xs-6">
-					<p><a href="https://www.youtube.com/channel/UCLmW8m26IVIHmGxEvOI3A5A" title="Youtube.com" class="text-muted no-underline"><i class="fa fa-youtube-square fa-fw fa-text-icon"></i>Youtube.com</a></p>
-					<p><a href="http://www.wowprogress.com/guild/eu/blutkessel/Natas" title="WoWProgress.com" class="text-muted no-underline"><i class="fa fa-globe fa-fw fa-text-icon"></i>WoWProgress.com</a></p>
-					<p><a href="https://www.warcraftlogs.com/guilds/25969" title="Warcraftlogs.com" class="text-muted no-underline"><i class="fa fa-bar-chart fa-fw fa-text-icon"></i>Warcraftlogs.com</a></p>
-					<p><a href="http://eu.battle.net/wow/de/guild/blutkessel/Natas/" title="World of Warcraft" class="text-muted no-underline"><i class="fa fa-gamepad fa-fw fa-text-icon"></i>World of Warcraft</a></p>
-					<p><a href="http://eu.battle.net/de/" title="battle.net" class="text-muted no-underline"><i class="fa fa-globe fa-fw fa-text-icon"></i>battle.net</a></p>
-				</div>
+			<div class="footer-logo">
+				<a href="https://www.warcraftlogs.com/guilds/25969" target="_blank">
+					<img src="https://www.warcraftlogs.com/img/warcraft/header-logo.png?v=2" />
+				</a>
+			</div>
+			<div class="footer-line"></div>
+			<div class="footer-logo">
+				<a href="http://eu.battle.net/" target="_blank">
+					<img src="http://eu.battle.net/static/local-common/images/logos/bnet-default.png" />
+				</a>
+			</div>
+			<div class="footer-line"></div>
+			<div class="footer-logo">
+				<a href="http://eu.battle.net/wow/de/guild/blutkessel/Natas/" target="_blank">
+					<img src="https://worldofwarcraft.com/static/components/Logo/Logo-wowIcon-01e2c44379.png" />
+				</a>
+			</div>
+			<div class="footer-line"></div>
+			<div class="footer-logo">
+				<a href="http://youtube.de" target="_blank">
+					<img src="https://www.youtube.com/yt/brand/media/image/YouTube-icon-full_color.png" />
+				</a>
 			</div>
 		</div>
+
     </footer>
 
     <script src="js/jquery-2.1.4.min.js"></script>

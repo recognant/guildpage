@@ -1,39 +1,31 @@
 <?php 
 
-class Error {
-
-	public static function INTERNAL_SERVER_ERROR($msg = "") {
-		header($_SERVER['SERVER_PROTOCOL'] . ' 500 Internal Server Error', true, 500);
-		Utils::SEND_ERROR($msg);
-	}
-	
-	public static function FORBIDDEN($msg = "") {
-		header($_SERVER['SERVER_PROTOCOL'] . ' 403 Forbidden', true, 403);
-		Utils::SEND_ERROR($msg);
-	}
-
+function SEND_MSG($msg = "") {
+	die($msg);
 }
 
-class Utils {
+function SEND_JSON($msg) {
+	die(json_encode($msg));
+}
 
-	public static function SEND_MSG($msg = "") {
-		die($msg);
-	}
-	
-	public static function SEND_JSON($msg) {
-		die(json_encode($msg));
-	}
-	
-	public static function SEND_ERROR($error = "") {
-		$json = array("status" => 1, "error" => $error);
-		die(json_encode($json));
-	}
-	
-	public static function SEND_OK($msg = "") {
-		$json = array("status" => 0, "msg" => $msg);
-		die(json_encode($json));
-	}
+function SEND_ERROR($error = "", $msg = "error") {
+	$json = array("status" => 1, "error" => $error, "msg" => $msg);
+	SEND_JSON($json);
+}
 
+function SEND_OK($msg = "") {
+	$json = array("status" => 0, "msg" => $msg);
+	SEND_JSON($json);
+}
+
+function INTERNAL_SERVER_ERROR($msg = "") {
+	header($_SERVER['SERVER_PROTOCOL'] . ' 500 Internal Server Error', true, 500);
+	SEND_ERROR($msg);
+}
+
+function FORBIDDEN($msg = "") {
+	header($_SERVER['SERVER_PROTOCOL'] . ' 403 Forbidden', true, 403);
+	SEND_ERROR($msg);
 }
 
 class Links {

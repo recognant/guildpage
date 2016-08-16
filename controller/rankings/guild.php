@@ -9,7 +9,7 @@ $metric = array_key_exists("metric", $_GET) ? (empty($_GET['metric']) ? "" : $_G
 $difficulty = array_key_exists("difficulty", $_GET) ? (empty($_GET['difficulty']) ? null : $_GET['difficulty']) : null;
 
 if( !Metric::is_metric($metric) ) {
-	Error::INTERNAL_SERVER_ERROR("something is off...");
+	INTERNAL_SERVER_ERROR("something is off...");
 }
 
 $rankings = array();
@@ -27,12 +27,12 @@ try {
 	case Metric::$KRSI:
 		break;
 	default:
-		Error::INTERNAL_SERVER_ERROR("something is off...");
+		ServerError::INTERNAL_SERVER_ERROR("something is off...");
 	}
 	$db->disconnect();
 
 } catch (Exception $e) {
-	Error::INTERNAL_SERVER_ERROR($e->getMessage());
+	INTERNAL_SERVER_ERROR($e->getMessage());
 }
 
 
@@ -42,6 +42,6 @@ $result = array(
 	"rankings" => $rankings
 );
 
-Utils::SEND_JSON($result);
+SEND_OK($result);
 
 ?>

@@ -18,7 +18,7 @@ try {
 			$file = fopen($filename, "w"); 
 
 			if( !$file) {
-				Error::INTERNAL_SERVER_ERROR("File not found!");
+				INTERNAL_SERVER_ERROR("File not found!");
 			}
 
 			fwrite($file, $data);
@@ -32,11 +32,11 @@ try {
 		
 	}
 	else {
-		Error::INTERNAL_SERVER_ERROR("Guide not found!");
+		INTERNAL_SERVER_ERROR("Guide not found!");
 	}
 	
 } catch (Exception $e) {
-	Error::INTERNAL_SERVER_ERROR($e->getMessage());
+	INTERNAL_SERVER_ERROR($e->getMessage());
 }
 
 ?>

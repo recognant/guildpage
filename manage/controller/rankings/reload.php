@@ -14,69 +14,59 @@ $metric = array_key_exists("metric", $_GET) ? (empty($_GET['metric']) ? "" : mb_
 $raid = array_key_exists("raid", $_GET) ? intval($_GET['raid']) : "";
 
 if( empty($character) || empty($server) || empty($region) || empty($raid) ) {
-	Error::INTERNAL_SERVER_ERROR();
+	INTERNAL_SERVER_ERROR();
 }
 
 try {
 	$db = Database::getInstance();
 	
 	if(!$db->is_member($character, $server, $region)) {
-		Error::INTERNAL_SERVER_ERROR("Character not found!");
+		INTERNAL_SERVER_ERROR("Character not found!");
+	}
+
+	$total = 0;
+	try {
+		switch($metric) {
+		case Metric::$DPS:
+			$data = fetch_character($character, $server, $region, $raid, Metric::$DPS);
+			if( $data !== false ) {
+				$total += $db->insert_dps_rankings($character, $server, $region, $data);
+			}
+			break;
+		case Metric::$HPS:
+			$data = fetch_character($character, $server, $region, $raid, Metric::$HPS);
+			if( $data !== false ) {
+				$total += $db->insert_hps_rankings($character, $server, $region, $data);
+			}
+			break;
+		case Metric::$KRSI:
+			break;
+		case "":
+			$data = fetch_character($character, $server, $region, $raid, Metric::$DPS);
+			if( $data !== false ) {
+				$total += $db->insert_dps_rankings($character, $server, $region, $data);
+			}
+			$data = fetch_character($character, $server, $region, $raid, Metric::$HPS);
+			if( $data !== false ) {
+				$total += $db->insert_hps_rankings($character, $server, $region, $data);
+			}
+		default:
+		}
+		
+	} catch (Exception $e) {
+		INTERNAL_SERVER_ERROR("You suck: " . $e->getMessage());
 	}
 	
+	$db->disconnect();
 	
-	$info = $db->get_characterinfo($character, $server, $region);
-
-	global $api_key;
-	$brackets = array();
-	$brackets = $db->get_brackets($raid);
+	$result = array(
+		"total" => $total
+	);
 	
-	// $rankings = array();
-
-	//foreach($brackets as $bracket) {
-		$bracket = array( "id" => 0 );
-		try {
-			switch($metric) {
-			case Metric::$DPS:
-				$data = fetch_character($character, $server, $region, $raid, Metric::$DPS, $bracket['id'], 5000, $api_key);
-				break;
-			case Metric::$HPS:
-				$data = fetch_character($character, $server, $region, $raid, Metric::$HPS, $bracket['id'], 5000, $api_key);
-				break;
-			case Metric::$KRSI:
-				$data = false;
-				break;
-			case "":
-				$data = fetch_character($character, $server, $region, $raid, Metric::$DPS, $bracket['id'], 5000, $api_key);
-				if( $data !== false ) {
-					// $rankings = array_merge($rankings, $data);
-					$db->init_ranking($character, $server, $region, $data, Metric::$DPS);
-				}
-				$data = fetch_character($character, $server, $region, $raid, Metric::$HPS, $bracket['id'], 5000, $api_key);
-				if( $data !== false ) {
-					// $rankings = array_merge($rankings, $data);
-					$db->init_ranking($character, $server, $region, $data, Metric::$HPS);
-				}
-			default:
-				$data = false;
-			}
-			
-			if( $data !== false ) {
-				$db->init_ranking($character, $server, $region, $data, $metric);
-			}
-		} catch (Exception $e) {
-			Error::INTERNAL_SERVER_ERROR("You suck: " . $e->getMessage());
-			//Utils::SEND_ERROR($e->getMessage());
-		}
-	//}
-	
-	// var_dump($rankings);
-	
-	Utils::SEND_OK();
+	SEND_OK($result);
 
 } catch (Exception $e) {
-	Error::INTERNAL_SERVER_ERROR("Even harder: " . $e->getMessage());
-	//Utils::SEND_ERROR($e->getMessage());
+	INTERNAL_SERVER_ERROR("Even harder: " . $e->getMessage());
 }
 
 ?>

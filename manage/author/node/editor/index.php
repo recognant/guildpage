@@ -16,57 +16,61 @@
 	
 		<div class="row">
 		
-			<h1><?php echo isset($title) ? $title : ""; ?></h1>
+			<div class="card">
+		
+				<h1><?php echo isset($title) ? $title : ""; ?></h1>
 
-			<div id="preview" class="container-fluid" style="padding: 25px; border:1px solid #ccc;"></div>
-			
-			<h1>Editor <button class="btn btn-success pull-right" onclick="save();"><i class="fa fa-file-text"></i>Preview</button></h1>
-			<div id="editor" align="center">
-			
-				<div id="toolbox" style="padding: 10px;">
+				<div id="preview" class="container-fluid" style="padding: 25px; border:1px solid #ccc;"></div>
 				
-					<div class="btn-group">
+				<h1>Editor <button class="btn btn-success pull-right" onclick="save();"><i class="fa fa-file-text"></i>Preview</button></h1>
+				<div id="editor" align="center">
+				
+					<div id="toolbox" style="padding: 10px;">
+					
+						<div class="btn-group">
+							
+							<button class="btn btn-default btn-lg" id="tool-title" title="Title"><i class="fa fa-header"></i></button>
+							<button class="btn btn-default btn-lg" id="tool-icon" title="Icons"><i class="fa fa-smile-o"></i></button>
+							<button class="btn btn-default btn-lg" id="tool-list" title="Unordered List"><i class="fa fa-list"></i></button>
+							<button class="btn btn-default btn-lg" id="tool-list-ordered" title="Ordered List"><i class="fa fa-list-ol"></i></button>
 						
-						<button class="btn btn-default btn-lg" id="tool-title" title="Title"><i class="fa fa-header"></i></button>
-						<button class="btn btn-default btn-lg" id="tool-icon" title="Icons"><i class="fa fa-smile-o"></i></button>
-						<button class="btn btn-default btn-lg" id="tool-list" title="Unordered List"><i class="fa fa-list"></i></button>
-						<button class="btn btn-default btn-lg" id="tool-list-ordered" title="Ordered List"><i class="fa fa-list-ol"></i></button>
+						</div>
+						
+						<div class="btn-group">
+						
+							<button class="btn btn-default btn-lg" id="tool-size" title="Text Size"><i class="fa fa-text-height"></i></button>
+							<button class="btn btn-default btn-lg" id="tool-bold" title="Bold"><i class="fa fa-bold"></i></button>
+							<button class="btn btn-default btn-lg" id="tool-italic" title="Italic"><i class="fa fa-italic"></i></button>
+							<button class="btn btn-default btn-lg" id="tool-underline" title="Underline"><i class="fa fa-underline"></i></button>
+							<button class="btn btn-default btn-lg" id="tool-chapter" title="Chapter"><i class="fa fa-paragraph"></i></button>
+							<button class="btn btn-default btn-lg" id="tool-subchapter" title="SubChapter"><i class="fa fa-paragraph"></i><span style="vertical-align: super; font-size: 8px;">2</span></button>
+							<button class="btn btn-default btn-lg" id="tool-subsubchapter" title="SubSubChapter"><i class="fa fa-paragraph"></i><span style="vertical-align: super; font-size: 8px;">3</span></button>
+						
+						</div>
+						
+						<div class="btn-group">
+						
+							<button class="btn btn-default btn-lg" id="tool-code" title="Code"><i class="fa fa-code"></i></button>
+							<button class="btn btn-default btn-lg" id="tool-block" title="Block"><i class="fa fa-square-o"></i></button>
+							<button class="btn btn-default btn-lg" id="tool-img" title="Image"><i class="fa fa-picture-o"></i></button>
+							<button class="btn btn-default btn-lg" id="tool-video" title="Video"><i class="fa fa-youtube"></i></button>
+							<button class="btn btn-default btn-lg" id="tool-link" title="Link"><i class="fa fa-link"></i></button>
+							<button class="btn btn-default btn-lg" id="tool-quote" title="Quote"><i class="fa fa-quote-left"></i></button>
+							<button class="btn btn-default btn-lg" id="tool-alert" title="Alert"><i class="fa fa-exclamation-triangle"></i></button>
+							<button class="btn btn-default btn-lg" id="tool-table" title="Table"><i class="fa fa-table"></i></button>
+							<button class="btn btn-default btn-lg" id="tool-panel" title="Panel"><i class="fa fa-list-alt"></i></button>
+							<button class="btn btn-default btn-lg" id="tool-columns" title="Column Layout"><i class="fa fa-columns"></i></button>
+							<button class="btn btn-default btn-lg" id="tool-rows" title="Row Layout"><i class="fa fa-bars"></i></button>
+							<button class="btn btn-default btn-lg" id="tool-tabs" title="Tabs"><i class="fa fa-th-large"></i></button>
+						
+						</div>
 					
 					</div>
-					
-					<div class="btn-group">
-					
-						<button class="btn btn-default btn-lg" id="tool-size" title="Text Size"><i class="fa fa-text-height"></i></button>
-						<button class="btn btn-default btn-lg" id="tool-bold" title="Bold"><i class="fa fa-bold"></i></button>
-						<button class="btn btn-default btn-lg" id="tool-italic" title="Italic"><i class="fa fa-italic"></i></button>
-						<button class="btn btn-default btn-lg" id="tool-underline" title="Underline"><i class="fa fa-underline"></i></button>
-						<button class="btn btn-default btn-lg" id="tool-chapter" title="Chapter"><i class="fa fa-paragraph"></i></button>
-						<button class="btn btn-default btn-lg" id="tool-subchapter" title="SubChapter"><i class="fa fa-paragraph"></i><span style="vertical-align: super; font-size: 8px;">2</span></button>
-						<button class="btn btn-default btn-lg" id="tool-subsubchapter" title="SubSubChapter"><i class="fa fa-paragraph"></i><span style="vertical-align: super; font-size: 8px;">3</span></button>
-					
-					</div>
-					
-					<div class="btn-group">
-					
-						<button class="btn btn-default btn-lg" id="tool-code" title="Code"><i class="fa fa-code"></i></button>
-						<button class="btn btn-default btn-lg" id="tool-block" title="Block"><i class="fa fa-square-o"></i></button>
-						<button class="btn btn-default btn-lg" id="tool-img" title="Image"><i class="fa fa-picture-o"></i></button>
-						<button class="btn btn-default btn-lg" id="tool-video" title="Video"><i class="fa fa-youtube"></i></button>
-						<button class="btn btn-default btn-lg" id="tool-link" title="Link"><i class="fa fa-link"></i></button>
-						<button class="btn btn-default btn-lg" id="tool-quote" title="Quote"><i class="fa fa-quote-left"></i></button>
-						<button class="btn btn-default btn-lg" id="tool-alert" title="Alert"><i class="fa fa-exclamation-triangle"></i></button>
-						<button class="btn btn-default btn-lg" id="tool-table" title="Table"><i class="fa fa-table"></i></button>
-						<button class="btn btn-default btn-lg" id="tool-panel" title="Panel"><i class="fa fa-list-alt"></i></button>
-						<button class="btn btn-default btn-lg" id="tool-columns" title="Column Layout"><i class="fa fa-columns"></i></button>
-						<button class="btn btn-default btn-lg" id="tool-rows" title="Row Layout"><i class="fa fa-bars"></i></button>
-						<button class="btn btn-default btn-lg" id="tool-tabs" title="Tabs"><i class="fa fa-th-large"></i></button>
-					
-					</div>
+				
+					<textarea id="codearea" class="form-control" style="resize:none; min-height:500px;"></textarea>
 				
 				</div>
-			
-				<textarea id="codearea" class="form-control" style="resize:none; min-height:500px;"></textarea>
-			
+				
 			</div>
 		
 		</div>
@@ -76,7 +80,11 @@
 		var tag = "<?php echo $tag; ?>";
 		
 		function load(file) {
-			$("#codearea").load("author/node/temp/" + file);
+			$.get("author/node/temp/" + file, {
+				cache: false
+			}).done(function(data) {
+				$("#codearea").html(data);
+			});
 		}
 		
 		function save() {

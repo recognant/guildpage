@@ -6,7 +6,7 @@ include_once(dirname(__FILE__) . "/../../../../modules/utils.php");
 $tag = array_key_exists("tag", $_GET) ? $_GET['tag'] : "";
 
 if( empty($tag) ) {
-	Error::INTERNAL_SERVER_ERROR("something is off...");
+	INTERNAL_SERVER_ERROR("something is off...");
 }
 
 try {
@@ -16,15 +16,16 @@ try {
 		$path = "../../../../node/$tag.html";
 		
 		if( !file_exists($path) )
-			Error::INTERNAL_SERVER_ERROR();
+			INTERNAL_SERVER_ERROR();
 
 		if( @unlink($path) ) {
 			$db->unpublish_guide($tag);
 		}
 		
-		Utils::SEND_OK();
+		SEND_OK();
 	}
+	$db->disconnect();
 } catch (Exception $e) {
-	Error::INTERNAL_SERVER_ERROR($e->getMessage());
+	INTERNAL_SERVER_ERROR($e->getMessage());
 }
 ?>

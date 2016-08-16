@@ -12,14 +12,14 @@ $metric = array_key_exists("metric", $_GET) ? (empty($_GET['metric']) ? "" : mb_
 $encounter = array_key_exists("encounter", $_GET) ? (empty($_GET['encounter']) ? null : intval($_GET['encounter'])) : null;
 
 if( empty($character) || empty($server) || empty($region) || ( !empty($metric) && !Metric::is_metric($metric) ) ) {
-	Error::INTERNAL_SERVER_ERROR("something is off...");
+	INTERNAL_SERVER_ERROR("something is off...");
 }
 
 try {
 	$db = Database::getInstance();
 	
 	if(!$db->is_member($character, $server, $region)) {
-		Error::INTERNAL_SERVER_ERROR("Character not found!");
+		INTERNAL_SERVER_ERROR("Character not found!");
 	}
 
 	switch($metric) {
@@ -38,11 +38,11 @@ try {
 		$rankings = array_merge($rankings1, $rankings2);
 		break;
 	default:
-		Error::INTERNAL_SERVER_ERROR("something is off...");
+		INTERNAL_SERVER_ERROR("something is off...");
 	}
 
 } catch (Exception $e) {
-	Error::INTERNAL_SERVER_ERROR($e->getMessage());
+	INTERNAL_SERVER_ERROR($e->getMessage());
 }
 
 $result = array(
@@ -54,6 +54,6 @@ $result = array(
 	"rankings" => $rankings
 );
 
-Utils::SEND_JSON($result);
+SEND_OK($result);
 
 ?>

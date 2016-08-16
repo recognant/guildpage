@@ -7,12 +7,13 @@ include_once(dirname(__FILE__) . "/../../modules/utils.php");
 
 $db = Database::getInstance();
 $zones = $db->get_zones();
+$db->disconnect();
 
 $result = array(
 	"total" => sizeof($zones),
 	"zones" => $zones
 );
 
-Utils::SEND_JSON($result);
+SEND_OK($result);
 
 ?>
