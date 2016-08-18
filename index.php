@@ -201,7 +201,6 @@
 	
 	<script>
 		$(document).ready(function() {
-			console.log("hi");
 			onhashchange();
 		});
 	</script>

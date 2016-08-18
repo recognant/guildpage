@@ -130,7 +130,7 @@ try {
 
 	function loadRank(character, server, region, raid, encounter, _class, spec, bracket, difficulty) {
 		
-		webi.content.loadJSON($('#highcharts'), "controller/rankings/bucketrank.php", {
+		webi.content.loadJSON($('#highcharts'), "api/rankings/bucketrank.php", {
 			character: character,
 			server: server,
 			region: region,
@@ -152,13 +152,23 @@ try {
 			
 			if( data.total > 0) {
 				var __lloyd = data.lloyd;
-				
-				var __clusters = __lloyd.clusters;
 				var __E = __lloyd.E;
 				var __E_index = 0;
 				var __E_dist = Number.MAX_VALUE;
+				
+				var __clusters = __lloyd.clusters;
 				var __SDp = __lloyd['sigma2+'];
 				var __SDm = __lloyd['sigma2-'];
+				
+				if( data.metric == "krsi" ) {
+					__clusters.reverse();
+					
+					for(var i = 0; i < __clusters.length; i++) {
+						var __min = __clusters[i].min;
+						__clusters[i].min = __clusters[i].max;
+						__clusters[i].max = __min;
+					}
+				}
 				
 				var __categories = [];
 				var __data = [];
@@ -184,6 +194,21 @@ try {
 					}
 					if( __cluster.min > __SDp ) {
 						__color = '#00ff00';
+					}
+					
+					if( data.metric == "krsi" ) {
+						if( __cluster.min < __SDm && __cluster.max > __SDm ) {
+							__color = 'green';
+						}
+						if( __cluster.max < __SDm ) {
+							__color = '#00ff00';
+						}
+						if( __cluster.min < __SDp && __cluster.max > __SDp ) {
+							__color = 'orange';
+						}
+						if( __cluster.min > __SDp ) {
+							__color = 'red';
+						}
 					}
 											
 					__data.push({ y: __cluster.total, color: __color });

@@ -246,6 +246,92 @@ var $Chart = {
 			},
 			series: series
 		});
+	},
+	
+	Bar2: function() {
+		return { 
+			title: {
+				text: "",
+				color: 'white'
+			},
+			subtitle: {
+				text: "",
+				color: 'grey'
+			},
+			anchor: null,
+			xAxis: {
+				categories: [],
+				line: {
+					E: 0,
+					color: 'red'
+				},
+				title: {
+					text: "",
+					color: 'white'
+				},
+				label: {
+					color: 'white'
+				}
+			},
+			yAxis: {
+				min: 0,
+				title: {
+					text: "",
+					color: 'white'
+				},
+				label: {
+					color: 'white'
+				}
+			},
+			legend: {
+				enabled: false,
+				color: 'white'
+			},
+			series: [],
+			settings: function() {
+				return  { chart: { type: 'column', backgroundColor: 'rgba(100, 100, 100, 0.35)' },
+					title: { text: this.title.text, style: { color: this.title.color } },
+					subtitle: { text: this.subtitle.text, style: { color: this.subtitle.color } },
+					xAxis: {
+						categories: this.xAxis.categories,
+						crosshair: true,
+						plotLines: [{ color: this.xAxis.line.color, dashStyle: 'solid', value: this.xAxis.line.E, width: 2 }],
+						title: {
+							text: this.xAxis.title.text,
+							style: { color: this.xAxis.title.color }
+						},
+						labels: {
+							style: { color: this.xAxis.label.color }
+						}
+					},
+					yAxis: {
+						min: 0,
+						title: {
+							text: this.yAxis.title.text,
+							style: { color: this.yAxis.title.color }
+						},
+						labels: {
+							style: { color: this.yAxis.label.color }
+						}
+					},
+					tooltip: {
+						shared: true
+					},
+					legend: {
+						enabled: this.legend.enabled,
+						itemStyle: { color: this.legend.color }
+					},
+					plotOptions: {
+						column: { pointPadding: 0.2, borderWidth: 0 }
+					},
+					series: this.series
+				};
+			}
+			plot: function() {
+				this.anchor.addClass('chart');
+				this.anchor.highcharts(this.settings());
+			}
+		}
 	}
 
 };

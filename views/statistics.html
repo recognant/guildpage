@@ -59,7 +59,7 @@
 
 $(document).ready(function() {
 
-	webi.loadJSON("controller/zones/index.php").done(function(data) {
+	webi.loadJSON("api/zones/index.php").done(function(data) {
 		var id = 0;
 		
 		if(data.status == 0) {
@@ -79,7 +79,7 @@ $(document).ready(function() {
 				
 		$('#zone-selector').val(id);
 		
-		webi.loadJSON("controller/difficulties/index.php").done(function(data) {
+		webi.loadJSON("api/difficulties/index.php").done(function(data) {
 			if(data.status == 0) {
 				data = data.msg;
 			}
@@ -142,8 +142,8 @@ function loadStatistics() {
 		
 	}
 
-	__load($('#highcharts-dps'), "controller/rankings/guild.php?raid=" + id + "&metric=bossdps&difficulty=" + difficulty);
-	__load($('#highcharts-hps'), "controller/rankings/guild.php?raid=" + id + "&metric=hps&difficulty=" + difficulty);
+	__load($('#highcharts-dps'), "api/rankings/guild.php?raid=" + id + "&metric=bossdps&difficulty=" + difficulty);
+	__load($('#highcharts-hps'), "api/rankings/guild.php?raid=" + id + "&metric=hps&difficulty=" + difficulty);
 }
 
 </script>

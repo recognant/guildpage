@@ -48,28 +48,6 @@ function fetch_encounter($id, $metric, $difficulty, $size=0, $region=1, $class, 
 	return $result;
 }
 
-function fetch_encounter_rankings($id, $metric, $difficulty, $size=0, $region="eu", $class, $spec, $bracket_id=0, $limit=5000) {
-	global $api_key;
-	
-	$parts = array();
-	$parts[] = fetch_encounter($id, $metric, $difficulty, $size, $region, $class, $spec, $bracket_id, $limit, 1, $api_key);
-	
-	$count = intval($parts[0]['total']) - $limit;
-	$page = 2;
-	while($count > 0) {
-		$parts[] = fetch_encounter($id, $metric, $difficulty, $size, $region, $class, $spec, $bracket_id, $limit, $page, $api_key);
-		$count -= $limit;
-		$page++;
-	}
-	
-	$data = array();
-	foreach($parts as $part) {
-		$data = array_merge($data, $part['rankings']);
-	}
-
-	return $data;
-}
-
 /* has to be done for all brackets in a raid */
 function fetch_character($name, $server, $region, $raid_id, $metric, $bracket_id=0, $limit=5000) {
 	global $api_key;
